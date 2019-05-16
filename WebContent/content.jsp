@@ -13,34 +13,30 @@
 
 <body>
 	<div style="text-align:right">
-	사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'">
+	사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'" style="margin-left:100">
 	</div>
 	<c:forEach items="${articleList}" var="article">
-	<table class="table table-striped table-bordered table-hover" style="text-align:center">
-		<caption style="text-align:center">게시판 내용</caption>
+	<table class="table table-striped table-bordered table-hover" style="text-align:center" >
+		<caption style="text-align:center"></caption>
+		
 		<tr>
-			<td>제목</td>
-			<td style="text-align:left">${article.subject}</td>			
+			<td style="text-align:center" colspan="4">${article.subject}</td>			
 		</tr>
 		<tr>
 			<td>작성자</td>
-			<td style="text-align:left">${article.id}</td>						
+			<td style="text-align:left">${article.id}</td>
+			<td>email</td>
+			<td style="text-align:left">${article.email}</td>						
 		</tr>
 		<tr>
 			<td>작성일자</td>
-			<td style="text-align:left">${article.boarddate}</td>						
-		</tr>
-		<tr>
+			<td style="text-align:left">${article.boarddate}</td>	
 			<td>조회수</td>
 			<td style="text-align:left">${article.score}</td>						
-		</tr>
-		<tr>
-			<td>email</td>
-			<td style="text-align:left">${article.email}</td>						
 		</tr>		
 		<tr>
 			<td>내용</td>
-			<td style="text-align:left">${article.content}</td>						
+			<td style="text-align:left" colspan="3" height="100px">${article.content}</td>						
 		</tr>
 		
 	</table>
@@ -50,5 +46,16 @@
 		<input type=button class="btn btn-secondary" value="돌아가기" OnClick="window.location='list.do'">
 	</div>
 	</c:forEach>		
+	<br><br>
+	<c:forEach items="${articleList}" var="article">
+	<table class="table table-striped table-bordered table-hover" style="text-align:left">
+	<caption style="text-align:left">  댓글</caption>
+		<tr>
+			<td width="250px">아이디 이메일</td>
+			<td>댓글 내용</td>
+		</tr>
+		
+	</table>
+	</c:forEach>
 </body>
 </html>

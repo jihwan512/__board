@@ -78,7 +78,6 @@ public class ContentAction implements CommandAction {
     		String query2 =  "UPDATE board SET score='" + score +    						
 					"' WHERE num=" + num;    		
     		stmt.executeUpdate(query2); 
-    		
     	} catch(SQLException ex){
     		
     	} finally{
@@ -87,7 +86,7 @@ public class ContentAction implements CommandAction {
     		
     		if(conn != null) try{conn.close();} catch(SQLException ex) {}
     	}
- 
+    	
         return "content.jsp";
  
     }

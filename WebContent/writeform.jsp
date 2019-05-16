@@ -32,28 +32,28 @@ function writeCheck()
 </head>
 <body>
 	<div style="text-align:right">
-		사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'">
+		사용자ID : ${id}    <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'" style="margin-left:100">
 	</div>
 	<form id="inform" action ="/board/write.do" method="post">
 		<table style="text-align:center; width: 1000; margin-left: auto; margin-right: auto" class="table table-striped table-bordered table-hover">
-			<caption style="text-align:center">게시판 작성</caption>
+			<caption style="text-align:center">게시글 작성</caption>
 			<tr >
 				<th>제목</th>
 				<th style="text-align:left" colspan="3"><input type="text" name="subject" style="width: 900"></th>
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<th style="text-align:left; width:300px;">${id} </th>
+				<th style="text-align:left; width:300px;">${id}</th>
 				<th>email</th>
 				<th style="text-align:left">${email}</th>
 			</tr>
 			<tr>	
 				<th>내용</th>
-				<th style="text-align:left" colspan="3"><textarea name="content" rows="10" cols="97" placeholder="내용을 입력하세요" form="inform"></textarea></th>
+				<th style="text-align:left" colspan="3"><textarea name="content" rows="10" cols="99" placeholder="내용을 입력하세요" form="inform"></textarea></th>
 			</tr>	
 			<tr>
-				<th></th>
-				<th style="text-align:center" colspan="3">		
+	
+				<th style="text-align:center" colspan="4">		
 					<input type=submit class="btn btn-success" value="등록" Onclick="javascript:writeCheck();">
 					<input type=button class="btn btn-secondary" value="취소" OnClick="window.location='list.do'">
 				</th>
