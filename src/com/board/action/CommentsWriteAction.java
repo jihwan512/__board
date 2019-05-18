@@ -59,7 +59,6 @@ public class CommentsWriteAction implements CommandAction {
     		pstmt.setString(3, email);
     		//쿼리 실행
     		pstmt.executeUpdate();
-    		System.out.println("Write");
     	} catch(SQLException ex){
 			
 		}finally{
