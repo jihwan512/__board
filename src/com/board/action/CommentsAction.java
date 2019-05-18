@@ -36,7 +36,6 @@ public class CommentsAction implements CommandAction {
     		}
     		
     		String jdbcDriver = "jdbc:mysql://127.0.0.1/board";
-    		
     			//	+
     			//				"useUnicode=true&characterEncoding = euc-kr";
     		String dbUser = "root";
