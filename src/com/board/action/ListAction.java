@@ -36,7 +36,6 @@ public class ListAction implements CommandAction {
     		HttpSession session = request.getSession();
     		//�α����� �Ǿ����� ������ �����˾��� �α���ȭ������ �̵�    		    		
     		String id = (String) session.getAttribute("id");
-    		String email = (String) session.getAttribute("email");
     		if(id == null){    			
     			return "loginerror.jsp";
     		}

@@ -3,23 +3,23 @@
 
 function writeCheck()
   {
-   var form = document.writeform;
+   var form = document.getElementById("inform");
    
   if( !form.subject.value )
    {
-    alert( "제목을 적어주세요" );
-    form.subject.focus();
-    return;
+    	alert( "제목을 적어주세요" );
+    	form.subject.focus();
+    	return false;
    }
- 
-  if( !form.content.value )
+  else if( !form.content.value )
    {
-    alert( "내용을 적어주세요" );
-    form.content.focus();
-    return;
-   }  
- 
-  form.submit();
+    	alert( "내용을 적어주세요" );
+    	form.content.focus();
+    	return false;
+   } 
+  else {
+	  return true;
+  }
   }
  </script>
 <html>
@@ -34,12 +34,12 @@ function writeCheck()
 	<div style="text-align:right">
 		사용자ID : ${id}    <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'" style="margin-left:100">
 	</div>
-	<form id="inform" action ="/board/write.do" method="post">
+	<form id="inform" action ="/board/write.do" method="post" onsubmit="return writeCheck();">
 		<table style="text-align:center; width: 1000; margin-left: auto; margin-right: auto" class="table table-striped table-bordered table-hover">
 			<caption style="text-align:center">게시글 작성</caption>
 			<tr >
 				<th>제목</th>
-				<th style="text-align:left" colspan="3"><input type="text" name="subject" style="width: 900"></th>
+				<th style="text-align:left" colspan="3"><input type="text" name="subject" placeholder="제목을 입력하세요" style="width: 900"></th>
 			</tr>
 			<tr>
 				<th>작성자</th>

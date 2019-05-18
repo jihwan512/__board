@@ -1,8 +1,5 @@
-/**
- * �Խ��� ������ �����ִ� Action
- */
 package com.board.action;
- 
+
 import java.sql.*;
 import java.util.ArrayList;
  
@@ -14,28 +11,24 @@ import javax.servlet.http.HttpServletResponse;
  
 import javax.servlet.http.HttpSession;
 
-import com.board.beans.*;
+import com.board.beans.comment;
  
 import com.board.controller.CommandAction;
- 
-public class ContentAction implements CommandAction {
+public class CommentsAction implements CommandAction {
 	
     public String requestPro(HttpServletRequest request,
  
     HttpServletResponse response) throws Throwable {
  
     	Class.forName("com.mysql.jdbc.Driver");
-    	//��ȣ�� �Է¹޾ƿ� ������ ����
+    	//占쏙옙호占쏙옙 占쌉력받아울옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
     	int num = Integer.parseInt(request.getParameter("num"));
     	Connection conn = null;
     	Statement stmt = null;    	
     	ResultSet rs = null;   
     	
-    	//��ȸ�� ������ ���� ���� ����
-    	int score = 0;
-    	
     	try {
-    		//���� Ȯ���� �α��λ��°� �ƴϸ� �α���â ȣ��
+    		//占쏙옙占쏙옙 확占쏙옙占쏙옙 占싸깍옙占싸삼옙占승곤옙 占싣니몌옙 占싸깍옙占쏙옙창 호占쏙옙
     		HttpSession session = request.getSession();
     		String id = (String) session.getAttribute("id");
     		if(id == null){    			
@@ -49,44 +42,12 @@ public class ContentAction implements CommandAction {
     		String dbUser = "root";
     		String dbPass = "root";
     		
-    		String query = "select * from board where num = "+num;
-    		
-    		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-    		
-    		stmt = conn.createStatement();    		
-    		rs = stmt.executeQuery(query);    		
-    		
-    		//��ȸ�� ����Ʈ�� �޾ƿ�
-    		ArrayList<board> articleList = new ArrayList<board>();
-    		
-    		while(rs.next()){
-    			board article = new board();
-    			article.setNum(rs.getInt("num"));    			
-    			article.setSubject(rs.getString("subject"));
-    			article.setContent(rs.getString("content"));
-    			article.setId(rs.getString("id"));
-    			article.setBoarddate(rs.getString("boarddate"));
-    			score = Integer.parseInt(rs.getString("score")) + 1;
-    			article.setScore(String.valueOf(score));
-    			article.setEmail(rs.getString("email"));
-    			articleList.add(article);
-    		}
-    		request.setAttribute("articleList",articleList);
-    		
-    		//��ȸ�� ������Ʈ
-    		String query2 =  "UPDATE board SET score='" + score +    						
-					"' WHERE num=" + num;    		
-    		stmt.executeUpdate(query2); 
-    		
-    		
-    		
-    		
-    		 query = "select * from board.comments where boardNum = "+num;
+    		String query = "select * from board.comments where boardNum = "+num;
     		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
     		stmt = conn.createStatement();    		
     		rs = stmt.executeQuery(query);    		
     		
-    		//��ȸ�� ����Ʈ�� �޾ƿ�
+    		//占쏙옙회占쏙옙 占쏙옙占쏙옙트占쏙옙 占쌨아울옙
     		ArrayList<comment> commentsList = new ArrayList<comment>();
   
     		while(rs.next()){
@@ -98,7 +59,7 @@ public class ContentAction implements CommandAction {
     			commentsList.add(mention);
     		}
     		request.setAttribute("commentsList",commentsList);
-    		
+
     	} catch(SQLException ex){
     		
     	} finally{

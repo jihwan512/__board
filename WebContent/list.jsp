@@ -13,7 +13,7 @@
 
 <body>
 	<div style="text-align:right">
-		사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'">
+		사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'" style="margin-left:100">
 	</div>
 	<table class="table table-striped table-bordered table-hover">
 		<caption style="text-align:center">게시판</caption>
@@ -28,8 +28,7 @@
 			<c:forEach items="${articleList}" var="article">
 		<tr>
 			<th style="text-align:center">${article.num}</th>
-			<th style="text-align:left"><a href="content.do?num=${article.num}">
-			${article.subject}</a></th>
+			<th style="text-align:left"><a href="content.do?num=${article.num}" OnClick="location.href='comments.do?num=${article.num}'">${article.subject}</a></th>
 			<th style="text-align:center">${article.id}</th>
 			<th style="text-align:center">${article.boarddate}</th>
 			<th style="text-align:center">${article.score}</th>			
