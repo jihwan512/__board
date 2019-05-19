@@ -29,7 +29,7 @@ function writeCheck()
 
 <body>
 	<div style="text-align:right">
-	사용자ID : ${id} ${articleList}<input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'" style="margin-left:100">
+	사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'" style="margin-left:100">
 	</div>
 	<c:forEach items="${articleList}" var="article">
 	<table class="table table-striped table-bordered table-hover" style="text-align:center" >
