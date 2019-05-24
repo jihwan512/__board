@@ -27,10 +27,10 @@
   <div class="bg-bugundy border-right" id="mainbar-wrapper">
     <div class="list-group list-group-horizontal">
       <a href="#" class="list-group-item list-group-item-action bg-bugundy">학점관리</a>
-      <a href="#" class="list-group-item list-group-item-action bg-bugundy">공학인증</a>
+      <a href="#" class="list-group-item list-group-item-action bg-bugundy">공학인증</a>
       <a href="#" class="list-group-item list-group-item-action bg-bugundy">포트폴리오</a>
       <a href="#" class="list-group-item list-group-item-action bg-bugundy">자기소개서</a>
-      <a href="#" class="list-group-item list-group-item-action bg-bugundy">자유게시판</a>
+      <a href="#" class="list-group-item list-group-item-action bg-bugundy">자유게시판</a>
     </div>
   </div>
   <div class="d-flex" id="wrapper">
