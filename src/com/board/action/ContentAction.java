@@ -78,9 +78,36 @@ public class ContentAction implements CommandAction {
 					"' WHERE num=" + num;    		
     		stmt.executeUpdate(query2); 
     		
+    		} catch(SQLException ex){
     		
+    	} finally{
+    		if(rs != null) try{rs.close();} catch(SQLException ex){}
+    		if(stmt != null) try{stmt.close();} catch(SQLException ex) {}
     		
+    		if(conn != null) try{conn.close();} catch(SQLException ex) {}
+    	}
     		
+    	try {
+    		//���� Ȯ���� �α��λ��°� �ƴϸ� �α���â ȣ��
+    		HttpSession session = request.getSession();
+    		String id = (String) session.getAttribute("id");
+    		if(id == null){    			
+    			return "loginerror.jsp";
+    		}
+    		
+    		String jdbcDriver = "jdbc:mysql://127.0.0.1/board";
+    		
+    			//	+
+    			//				"useUnicode=true&characterEncoding = euc-kr";
+    		String dbUser = "root";
+    		String dbPass = "root";
+    		
+    		String query = "select * from board where num = "+num;
+    		
+    		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+    		
+    		stmt = conn.createStatement();    		
+    		rs = stmt.executeQuery(query);   
     		 query = "select * from board.comments where boardNum = "+num;
     		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
     		stmt = conn.createStatement();    		
