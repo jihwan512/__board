@@ -137,10 +137,10 @@
 		<tr>
 			<td>${comments.id} (${comments.email})</td>
 			<td>${comments.date}</td>
-			<td style="text-align-last: right">${comments.comment}
+			<td style="text-align-last:justify;">${comments.comment}
 			<c:if test="${comments.id eq id}">
 				<%int num=Integer.parseInt(request.getParameter("num")); %>
-				<input type=button class="btn btn-danger" value="삭제하기" OnClick="commentDelete('${comments.comment}','<%=num%>');" style="text-align:right;">
+				<input type=button class="btn btn-danger" value="삭제하기" OnClick="commentDelete('${comments.comment}','<%=num%>');" >
 			</c:if>
 			</td>
 		</tr>
