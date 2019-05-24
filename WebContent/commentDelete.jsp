@@ -6,7 +6,7 @@
 	<head></head>
 	<body>
   			<script>
-  			<%int num=Integer.parseInt(request.getParameter("num")); %>
+  			<%int num=Integer.parseInt(request.getParameter("boardnum")); %>
    				self.window.alert("댓글을 삭제하였습니다.");
    				location.href="content.do?num="+<%=num%>;
   			</script>

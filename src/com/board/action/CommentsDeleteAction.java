@@ -20,16 +20,12 @@ public class CommentsDeleteAction implements CommandAction {
     public String requestPro(HttpServletRequest request,
  
     HttpServletResponse response) throws Throwable {
-    	System.out.println("in1");
     	request.setCharacterEncoding("UTF-8");
     	Class.forName("com.mysql.jdbc.Driver");
     	String url = "jdbc:mysql://127.0.0.1/board";
     	String dbUser = "root";
     	String dbPass = "root";
-    	String comment = request.getParameter("comments");
-    	String comments = URLDecoder.decode(comment, "UTF-8");
-
-
+    	int boardnum = Integer.parseInt(request.getParameter("boardnum"));
     	int num = Integer.parseInt(request.getParameter("num"));
     	
     	Statement stmt = null;
@@ -40,12 +36,11 @@ public class CommentsDeleteAction implements CommandAction {
     		if(session.getAttribute("id") == null){
     			return "loginerror.jsp";
     		}
-    		System.out.println("in2"+comments+num);
     				
     		conn = DriverManager.getConnection(url,dbUser,dbPass);
     		stmt = conn.createStatement();
-   		   	
-    			String sql = "DELETE FROM comments WHERE comments='" + comments+"';";	    			
+   		   	System.out.println(num);
+    			String sql = "DELETE FROM comments WHERE num=" + num;	    			
     			stmt.executeUpdate(sql);	    			
     			
     			stmt.close();

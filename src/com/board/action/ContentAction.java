@@ -122,6 +122,7 @@ public class ContentAction implements CommandAction {
     			mention.setId(rs.getString("id"));
     			mention.setEmail(rs.getString("email"));
     			mention.setdate(rs.getString("date"));
+    			mention.setNum(rs.getInt("num"));
     			commentsList.add(mention);
     		}
     		request.setAttribute("commentsList",commentsList);

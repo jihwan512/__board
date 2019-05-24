@@ -3,6 +3,7 @@
  */
 package com.board.action;
  
+import java.net.URLDecoder;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -33,17 +34,18 @@ public class ModifyAction implements CommandAction {
         		if(session.getAttribute("id") == null){
         			return "loginerror.jsp";
         		}
-    			
+        		
     			request.setCharacterEncoding("utf-8");
     			String num = request.getParameter("num");    			
     			String subject = request.getParameter("subject");
     			String content = request.getParameter("content");
-    			
+    			String comments = URLDecoder.decode(content, "UTF-8");
+    			System.out.println(comments);
     			conn = DriverManager.getConnection(url,dbUser,dbPass);    			    			    			
-    					
+    			
     			stmt = conn.createStatement();
    			    			    		
-    			String sql = "UPDATE board SET subject='" + subject + "' ,content='"+ content +    						
+    			String sql = "UPDATE board SET subject='" + subject + "' ,content='"+ comments +    						
     						"' WHERE num=" + num;				
     			stmt.executeUpdate(sql);    			
 

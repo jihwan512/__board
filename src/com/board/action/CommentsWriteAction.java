@@ -53,7 +53,7 @@ public class CommentsWriteAction implements CommandAction {
     		
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
-      		pstmt = conn.prepareStatement("insert into comments values("+num+",?,?,?,now())");
+      		pstmt = conn.prepareStatement("insert into comments values("+num+",?,?,?,now(),NULL)");
     		pstmt.setString(1, comment);
     		pstmt.setString(2, id);
     		pstmt.setString(3, email);
