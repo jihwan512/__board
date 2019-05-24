@@ -19,8 +19,9 @@
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
+  
   <script> 
-
+		
 		function writeCheck()
 		  {
 		   var form = document.getElementById("inform");
@@ -35,6 +36,11 @@
 		  		return true;
 		  	}
 		  }
+		function commentDelete(comment,num){
+			alert(comment);
+			alert(num);
+			location.href="commentsdelete.do?comments="+encodeURI(encodeURIComponent(comment))+"&num="+num;
+		}
   </script>
 </head>
 
@@ -127,10 +133,16 @@
 			<td>댓글 내용</td>
 		</tr>
 		<c:forEach items="${commentsList}" var="comments">
+		
 		<tr>
 			<td>${comments.id} (${comments.email})</td>
 			<td>${comments.date}</td>
-			<td>${comments.comment}</td>
+			<td style="text-align-last: right">${comments.comment}
+			<c:if test="${comments.id eq id}">
+				<%int num=Integer.parseInt(request.getParameter("num")); %>
+				<input type=button class="btn btn-danger" value="삭제하기" OnClick="commentDelete('${comments.comment}','<%=num%>');" style="text-align:right;">
+			</c:if>
+			</td>
 		</tr>
 		</c:forEach>
 	</table>

@@ -64,11 +64,11 @@
         </div>
       </nav>
 
-      <div class="container-fluid" style="width:100%">
+      <div class="container-fluid" >
 <!--         	<div style="text-align:right"> -->
 <%-- 				사용자ID : ${id}  --%>
 <!-- 			</div> -->
-			<table class="table table-striped table-bordered table-hover" style="width:100%">
+			<table class="table table-striped table-bordered table-hover">
 				<tr>
 					<th style="text-align:center">번호</th>
 					<th style="text-align:center">제목</th>
