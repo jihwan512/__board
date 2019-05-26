@@ -150,10 +150,9 @@
 	<c:forEach items="${articleList}" var="article">
 	<form id="inform" action="/board/commentsWrite.do?num=${article.num}" method="post" style="margin-bottom:10;" onsubmit="return writeCheck();">
 		<table class="table table-striped table-bordered table-hover" style="text-align:left; ">
-			<caption style="text-align:center">  댓글 작성</caption>
 			<tr>
 				<td width="250px">${id} (${email})</td>
-				<td><input type="text" name="comment" placeholder="내용을 입력하세요" size="120"></td>
+				<td><input type="text" name="comment" placeholder="내용을 입력하세요" size="100"></td>
 				<td><input type=submit class="btn btn-success" value="등록" Onclick="javascript:writeCheck();"></td>
 			</tr>	
 		</table>
