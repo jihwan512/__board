@@ -37,7 +37,7 @@ public class ModifyformAction implements CommandAction {
         		if(session.getAttribute("id") == null){
         			return "loginerror.jsp";
         		}
-    			
+
     			request.setCharacterEncoding("UTF-8");
     			String num = request.getParameter("num");
     			

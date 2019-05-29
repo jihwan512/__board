@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <script> 
 		function writeCheck()
 		  {
 		   var form = document.writeform;
-		   
 		  if( !form.subject.value )
 		   {
 		    alert( "제목을 적어주세요" );
@@ -25,17 +25,20 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<title>BOARD 테이블 레코드 삽입</title>
 </head>
 <body>
+
 	<div style="text-align:right">
 		사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'">
 	</div>
-	<form action ="/board/modify.do" method="get">
+	<form action ="/board/modify.do" method="post">
 		<c:forEach items="${articleList}" var="article">
+			<% request.setCharacterEncoding("euc-kr"); %>
 			<input type="hidden" name="num" value="${article.num}">
 			<table class="table table-striped table-bordered table-hover" style="text-align:center">
 				<caption style="text-align:center">게시판 수정</caption>		
