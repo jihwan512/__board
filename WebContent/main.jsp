@@ -45,7 +45,7 @@
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
-    <div id="page-content-wrapper">
+    <div id="page-content-wrapper" >
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <button class="btn btn-primary" id="menu-toggle">Menu</button>
@@ -62,81 +62,9 @@
           </ul>
         </div>
       </nav>
-
-      <div class="container-fluid" >
-<!--         	<div style="text-align:right"> -->
-<%-- 				사용자ID : ${id}  --%>
-<!-- 			</div> -->
-			<table class="table table-striped table-bordered table-hover">
-				<tr>
-					<th style="text-align:center">번호</th>
-					<th style="text-align:center">제목</th>
-					<th style="text-align:center">작성자</th>
-					<th style="text-align:center">작성일자</th>
-					<th style="text-align:center">조회수</th>
-				</tr>
-					
-					<c:forEach items="${articleList}" var="article">
-				<tr>
-					<th style="text-align:center">${article.num}</th>
-					<th style="text-align:left"><a href="content.do?num=${article.num}" OnClick="location.href='comments.do?num=${article.num}'">${article.subject}</a></th>
-					<th style="text-align:center">${article.id}</th>
-					<th style="text-align:center">${article.boarddate}</th>
-					<th style="text-align:center">${article.score}</th>			
-				</tr>
-				</c:forEach>
-			</table>		
-				
-				<div style="text-align:center;">
-				<c:if test="${count > 0}">
-   					<c:set var="pageCount" value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}"/>
-   					<c:set var="startPage" value="${pageGroupSize*(numPageGroup-1)+1}"/>
-   					<c:set var="endPage" value="${startPage + pageGroupSize-1}"/>
-   
-   				<c:if test="${endPage > pageCount}" >
-     				<c:set var="endPage" value="${pageCount}" />
-   				</c:if>
-          
-   				<c:if test="${numPageGroup > 1}">
-        			<a href="./list.do?pageNum=${(numPageGroup-2)*pageGroupSize+1 }">[이전]</a>
-   				</c:if>
-
-   				<c:forEach var="i" begin="${startPage}" end="${endPage}">
-       				<a href="list.do?pageNum=${i}">[
-        			<font color="#000000">
-          				<c:if test="${currentPage == i}">
-          					<b>${i}</b>
-        				</c:if>
-        				<c:if test="${currentPage != i}">
-          					${i}
-        				</c:if>
-       				</font>]
-       				</a>
-   				</c:forEach>
-
-   				<c:if test="${numPageGroup < pageGroupCount}">
-        			<a href="./list.do?pageNum=${numPageGroup*pageGroupSize+1}">[다음]</a>
-   				</c:if>
-				</c:if>		
-				</div>
-				
-					<div style="text-align:right">
-						<input type=button class="btn btn-success" value="작성하기" OnClick="window.location='writeform.jsp'">
-					</div>
-					<div id="searchForm" style="text-align:center">
-					
-						<form action="/board/list.do?" method="get">
-							<select name="opt">
-								<option value="0">제목</option>
-								<option value="1">내용</option>
-								<option value="2">작성자</option>
-							</select>
-							<input type="text" size="20" name="condition"/>
-							<input class="btn btn-secondary" type="submit" value="검색"/>
-						</form>
-					</div>
-					
-     		 </div>
+      <div style="text-align:center;">
+      	<img src="./img/cbnu.jpg" alt="cbnu.png" >
+      </div>
 	  </div>
 
     <!-- /#page-content-wrapper -->

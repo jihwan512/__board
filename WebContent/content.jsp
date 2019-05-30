@@ -45,24 +45,25 @@
 </head>
 
 <body>
-  <img src = ""/>
-  <div class="bg-light border-right" id="mainbar-wrapper">
+<div style="text-align:right">
+  	<a href="main.jsp" style="margin-right:10px">main</a>
+  </div>	
+  <div class="bg-bugundy border-right" id="mainbar-wrapper">
     <div class="list-group list-group-horizontal">
-      <a href="#" class="list-group-item list-group-item-action bg-light">학점관리</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">공학인증</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">포트폴리오</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">자기소개서</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">자유게시판</a>
+      <a href="#" class="list-group-item list-group-item-action bg-bugundy">학점관리</a>
+      <a href="#" class="list-group-item list-group-item-action bg-bugundy">공학인증</a>
+      <a href="#" class="list-group-item list-group-item-action bg-bugundy">포트폴리오</a>
+      <a href="#" class="list-group-item list-group-item-action bg-bugundy">자기소개서</a>
+      <a href="#" class="list-group-item list-group-item-action bg-bugundy">자유게시판</a>
     </div>
   </div>
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">학점관리</div>
+    <div class="bg-bugundy border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">자유게시판</div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">학점 등록</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">평점 조회</a>
+        <a href="/board/list.do" class="list-group-item list-group-item-action bg-bugundy">자유게시판</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

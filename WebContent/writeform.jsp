@@ -31,6 +31,29 @@ function writeCheck()
 	<title>BOARD 테이블 레코드 삽입</title>
 </head>
 <body>
+<div style="text-align:right">
+  	<a href="main.jsp" style="margin-right:10px">main</a>
+  </div>	
+  <div class="bg-bugundy border-right" id="mainbar-wrapper">
+    <div class="list-group list-group-horizontal">
+      <a href="#" class="list-group-item list-group-item-action bg-bugundy">학점관리</a>
+      <a href="#" class="list-group-item list-group-item-action bg-bugundy">공학인증</a>
+      <a href="#" class="list-group-item list-group-item-action bg-bugundy">포트폴리오</a>
+      <a href="#" class="list-group-item list-group-item-action bg-bugundy">자기소개서</a>
+      <a href="#" class="list-group-item list-group-item-action bg-bugundy">자유게시판</a>
+    </div>
+  </div>
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-bugundy border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">자유게시판</div>
+      <div class="list-group list-group-flush">
+        <a href="/board/list.do" class="list-group-item list-group-item-action bg-bugundy">자유게시판</a>
+      </div>
+    </div>
+
+
 	<div style="text-align:right">
 		사용자ID : ${id}    <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'" style="margin-left:100">
 	</div>
@@ -60,5 +83,6 @@ function writeCheck()
 			</tr>
 		</table>
 	</form>
+	</div>
 </body>
 </html>
