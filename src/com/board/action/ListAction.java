@@ -29,8 +29,12 @@ public class ListAction implements CommandAction {
     	ResultSet rs = null;    	
     	
     	//�˻��ɼǰ� �˻����� �޾� ������ ����
+    	request.setCharacterEncoding("UTF-8");
     	String opt = request.getParameter("opt");
     	String condition = request.getParameter("condition");
+    	String conditions = request.getParameter("condition");
+    	
+    	System.out.println(condition);
     	
     	try {
     		HttpSession session = request.getSession();

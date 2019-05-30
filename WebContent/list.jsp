@@ -91,7 +91,7 @@
 						<input type=button class="btn btn-success" value="작성하기" OnClick="window.location='writeform.jsp'">
 					</div>
 					<div id="searchForm" style="text-align:center">
-						<form>
+						<form action="/board/list.do" method="post">
 							<select name="opt">
 								<option value="0">제목</option>
 								<option value="1">내용</option>
