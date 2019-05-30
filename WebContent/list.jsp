@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 
 <head>
-
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -86,12 +84,44 @@
 					<th style="text-align:center">${article.score}</th>			
 				</tr>
 				</c:forEach>
-				</table>				
+				</table>		
+				
+				<c:if test="${count > 0}">
+   					<c:set var="pageCount" value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}"/>
+   					<c:set var="startPage" value="${pageGroupSize*(numPageGroup-1)+1}"/>
+   					<c:set var="endPage" value="${startPage + pageGroupSize-1}"/>
+   
+   				<c:if test="${endPage > pageCount}" >
+     				<c:set var="endPage" value="${pageCount}" />
+   				</c:if>
+          
+   				<c:if test="${numPageGroup > 1}">
+        			<a href="./list.do?pageNum=${(numPageGroup-2)*pageGroupSize+1 }">[이전]</a>
+   				</c:if>
+
+   				<c:forEach var="i" begin="${startPage}" end="${endPage}">
+       				<a href="list.do?pageNum=${i}">[
+        			<font color="#000000">
+          				<c:if test="${currentPage == i}">
+          					<b>${i}</b>
+        				</c:if>
+        				<c:if test="${currentPage != i}">
+          					${i}
+        				</c:if>
+       				</font>]
+       				</a>
+   				</c:forEach>
+
+   				<c:if test="${numPageGroup < pageGroupCount}">
+        			<a href="./list.do?pageNum=${numPageGroup*pageGroupSize+1}">[다음]</a>
+   				</c:if>
+				</c:if>		
 					<div style="text-align:right">
 						<input type=button class="btn btn-success" value="작성하기" OnClick="window.location='writeform.jsp'">
 					</div>
 					<div id="searchForm" style="text-align:center">
-						<form action="/board/list.do" method="post">
+					
+						<form action="/board/list.do" method="get">
 							<select name="opt">
 								<option value="0">제목</option>
 								<option value="1">내용</option>

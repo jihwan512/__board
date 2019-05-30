@@ -38,6 +38,7 @@ public class ModifyAction implements CommandAction {
     			String num = request.getParameter("num");    			
     			String subject = request.getParameter("subject");
     			String content = request.getParameter("content");
+    			System.out.println("수정 내용 "+content);
     			
     			conn = DriverManager.getConnection(url,dbUser,dbPass);    			    			    			
     			

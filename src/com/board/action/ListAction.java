@@ -3,6 +3,7 @@
  */
 package com.board.action;
  
+import java.net.URLDecoder;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -22,16 +23,35 @@ public class ListAction implements CommandAction {
     public String requestPro(HttpServletRequest request,
  
     HttpServletResponse response) throws Throwable {
+    	request.setCharacterEncoding("UTF-8");
+    	String opt = request.getParameter("opt");
+    	String condition = request.getParameter("condition");
+    	System.out.println("opt condition " +opt+"  "+condition);
  
     	Class.forName("com.mysql.jdbc.Driver");    	    
     	Connection conn = null;
     	Statement stmt = null;
-    	ResultSet rs = null;    	
+    	ResultSet rs = null;
     	
+    	int pageSize = 10;
+    	int pageGroupSize = 5;
+    	
+    	String pageNum = request.getParameter("pageNum");
+    	
+    	 if (pageNum == null) {
+             pageNum = "1";
+    	 }
+
+    	 int currentPage = Integer.parseInt(pageNum);
+    	 int startRow = (currentPage - 1) * pageSize + 1;//한 페이지의 시작글 번호
+    	 int endRow = currentPage * pageSize;//한 페이지의 마지막 글번호
+    	 int count = 0;
+    	 int number=0;
+
+    	board board = new board();
+    	
+    	count = board.getCount(request, response,opt,condition);
     	//�˻��ɼǰ� �˻����� �޾� ������ ����
-    	request.setCharacterEncoding("UTF-8");
-    	String opt = request.getParameter("opt");
-    	String condition = request.getParameter("condition");
     	
     	try {
     		HttpSession session = request.getSession();
@@ -48,34 +68,39 @@ public class ListAction implements CommandAction {
     		String dbPass = "root";
     		String query = null; 
     		
-    		if(opt == null){    			
-    			query = "select * from board order by num desc";
-    		}else if(opt.equals("0")){    			
-    			query = "select * from board where subject like '%"+condition+"%' order by num desc";        		
-    		}else if(opt.equals("1")){    			
-    			query = "select * from board where content like '%"+condition+"%' order by num desc";        		
-    		}else if(opt.equals("2")){    			
-    			query = "select * from board where id like '%"+condition+"%' order by num desc";        		
+    		ArrayList<board> articleList = new ArrayList<board>();    	
+
+    		if (count > 0) {        
+                if(endRow>count)
+                {
+                        endRow = count;
+                }
+            articleList = board.select(startRow,endRow, request, response,opt,condition);//현재 페이지에 해당하는 글 목록
+            
+    		} else {
+            articleList = null;
     		}
-    		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+    		number=count-(currentPage-1)*pageSize;//글목록에 표시할 글번호
     		
-    		stmt = conn.createStatement();    		
-    		rs = stmt.executeQuery(query);    		
-    		
-    		ArrayList<board> articleList = new ArrayList<board>();    		
-    		
-    		while(rs.next()){
-    			board article = new board();
-    			article.setNum(rs.getInt("num"));
-    			article.setSubject(rs.getString("subject"));
-    			article.setContent(rs.getString("content"));
-    			article.setId(rs.getString("id"));
-    			article.setEmail(rs.getString("email"));
-    			article.setBoarddate(rs.getString("boarddate"));
-    			article.setScore(rs.getString("score"));
-    			articleList.add(article);
-    		}
+    		//페이지그룹의 갯수 
+            //ex) pageGroupSize가 3일 경우 '[1][2][3]'가 pageGroupCount 개 만큼 있다.  
+            int pageGroupCount = count/(pageSize*pageGroupSize)+( count % (pageSize*pageGroupSize) == 0 ? 0 : 1);
+            //페이지 그룹 번호 
+            //ex) pageGroupSize가 3일 경우  '[1][2][3]'의 페이지그룹번호는 1 이고  '[2][3][4]'의 페이지그룹번호는 2 이다.
+            int numPageGroup = (int) Math.ceil((double)currentPage/pageGroupSize);
+
+
+            request.setAttribute("currentPage", new Integer(currentPage));
+            request.setAttribute("startRow", new Integer(startRow));
+            request.setAttribute("endRow", new Integer(endRow));
+            request.setAttribute("count", new Integer(count));
+            request.setAttribute("pageSize", new Integer(pageSize));
+            request.setAttribute("number", new Integer(number));
+            request.setAttribute("pageGroupSize", new Integer(pageGroupSize));
+            request.setAttribute("numPageGroup", new Integer(numPageGroup));
+            request.setAttribute("pageGroupCount", new Integer(pageGroupCount));
     		request.setAttribute("articleList",articleList);
+
     		
     	} catch(SQLException ex){
     		

@@ -1,31 +1,42 @@
 package com.board.beans;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 public class board {
-	//��ȣ
+	//��ȣ
 	private int num;
 	
-	//����
+	//����
 	private String subject;
 	
-	//����
+	//����
 	private String content;
 	
-	//���̵�
+	//���̵�
 	private String id;
 	
-	//�̸���
+	//�̸���
 	private String email;
 	
-	//�ۼ�����
+	//�ۼ�����
 	private String boarddate;
 	
-	//��ȸ��
+	//��ȸ��
 	private String score;
 	
-	//�˻��ɼ�
+	//�˻��ɼ�
 	public String opt;
 	
-	//�˻�����
+	//�˻�����
 	public String condition;
 	
 	public String getOpt() {
@@ -82,5 +93,126 @@ public class board {
 	public void setScore(String score) {
 		this.score = score;
 	}
-	
+	public int getCount(HttpServletRequest request, HttpServletResponse response, String opt, String condition) throws Throwable {
+		
+			    	Class.forName("com.mysql.jdbc.Driver");    	    
+			    	Connection conn = null;
+			    	Statement stmt = null;
+			    	ResultSet rs = null;
+			    	int count =0;
+			    	
+			    	request.setCharacterEncoding("UTF-8");
+
+			    	try {
+			    		HttpSession session = request.getSession();
+			    		String jdbcDriver = "jdbc:mysql://127.0.0.1/board";
+			    		String dbUser = "root";
+			    		String dbPass = "root";
+			    		String query = null; 
+			   
+			    		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			    		if(opt == null){    			
+			    			query = "select * from board order by num desc";
+			    		}else if(opt.equals("0")){    			
+			    			query = "select * from board where subject like '%"+condition+"%' order by num desc";        		
+			    		}else if(opt.equals("1")){    			
+			    			query = "select * from board where content like '%"+condition+"%' order by num desc";        		
+			    		}else if(opt.equals("2")){    			
+			    			query = "select * from board where id like '%"+condition+"%' order by num desc";        		
+			    		}
+			    		stmt = conn.createStatement();    		
+			    		rs = stmt.executeQuery(query);    		
+			    		
+			    		while(rs.next()){
+			    			count++;
+			    		}
+
+			    	} catch(SQLException ex){
+			    		
+			    	} finally{
+			    		if(rs != null) try{rs.close();} catch(SQLException ex){}
+			    		if(stmt != null) try{stmt.close();} catch(SQLException ex) {}
+			    		
+			    		if(conn != null) try{conn.close();} catch(SQLException ex) {}
+			    	}
+		return count;
+	}
+	public ArrayList<board> select(int startRow,int endRow,HttpServletRequest request, HttpServletResponse response, String opt, String condition)
+		throws Throwable {
+		
+		ArrayList<board> articleList = new ArrayList<board>();
+    	Class.forName("com.mysql.jdbc.Driver");
+    	//占쏙옙호占쏙옙 占쌉력받아울옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
+//    	int num = Integer.parseInt(request.getParameter("num"));
+    	Connection conn = null;
+    	Statement stmt = null;    	
+    	ResultSet rs = null;   
+    	
+    	int count = 0;
+    	board board = new board();
+    	count = board.getCount(request, response,opt,condition);
+    	
+    	//占쏙옙회占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙
+    	int score = 0;
+    	request.setCharacterEncoding("UTF-8");
+    	
+    	try {
+    		//占쏙옙占쏙옙 확占쏙옙占쏙옙 占싸깍옙占싸삼옙占승곤옙 占싣니몌옙 占싸깍옙占쏙옙창 호占쏙옙
+    		HttpSession session = request.getSession();
+
+    		String jdbcDriver = "jdbc:mysql://127.0.0.1/board";
+    		
+    			//	+
+    			//				"useUnicode=true&characterEncoding = euc-kr";
+    		String dbUser = "root";
+    		String dbPass = "root";
+    		String query = null; 
+
+    		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+    		if(opt == null){    			
+    			query = "select * from board order by num desc";
+    		}else if(opt.equals("0")){    			
+    			query = "select * from board where subject like '%"+condition+"%' order by num desc";        		
+    		}else if(opt.equals("1")){    			
+    			query = "select * from board where content like '%"+condition+"%' order by num desc";        		
+    		}else if(opt.equals("2")){    			
+    			query = "select * from board where id like '%"+condition+"%' order by num desc";        		
+    		}
+//    		System.out.println("condition & opt  " + opt +"   "+ condition);
+    		stmt = conn.createStatement();    		
+    		rs = stmt.executeQuery(query);    		
+    		
+    		//占쏙옙회占쏙옙 占쏙옙占쏙옙트占쏙옙 占쌨아울옙
+    		for(int i = 0; i < count ;i++,rs.next()){
+    			if(startRow <= i && i <= endRow)
+    			{
+    				board article = new board();
+    				article.setNum(rs.getInt("num"));    			
+    				article.setSubject(rs.getString("subject"));
+    				article.setContent(rs.getString("content"));
+    				article.setId(rs.getString("id"));
+    				article.setBoarddate(rs.getString("boarddate"));
+    				score = Integer.parseInt(rs.getString("score")) + 1;
+    				article.setScore(String.valueOf(score));
+    				article.setEmail(rs.getString("email"));
+    				articleList.add(article);
+    			}
+    		}
+    		//占쏙옙회占쏙옙 占쏙옙占쏙옙占쏙옙트
+    		String query2 =  "UPDATE board SET score='" + score +    						
+					"' WHERE num=" + num;    		
+    		stmt.executeUpdate(query2); 
+    		return articleList;
+    		} catch(SQLException ex){
+    		
+    	} finally{
+    		if(rs != null) try{rs.close();} catch(SQLException ex){}
+    		if(stmt != null) try{stmt.close();} catch(SQLException ex) {}
+    		
+    		if(conn != null) try{conn.close();} catch(SQLException ex) {}
+    	}
+		
+    	return articleList;
+
+	}
 }
