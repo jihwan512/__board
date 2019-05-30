@@ -1,6 +1,3 @@
-/**
- * ����Ʈ�� �����ֱ� ���� Action
- */
 package com.board.action;
  
 import java.net.URLDecoder;
@@ -26,7 +23,6 @@ public class ListAction implements CommandAction {
     	request.setCharacterEncoding("UTF-8");
     	String opt = request.getParameter("opt");
     	String condition = request.getParameter("condition");
-    	System.out.println("opt condition " +opt+"  "+condition);
  
     	Class.forName("com.mysql.jdbc.Driver");    	    
     	Connection conn = null;

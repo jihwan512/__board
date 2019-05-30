@@ -84,8 +84,9 @@
 					<th style="text-align:center">${article.score}</th>			
 				</tr>
 				</c:forEach>
-				</table>		
+			</table>		
 				
+				<div style="text-align:center;">
 				<c:if test="${count > 0}">
    					<c:set var="pageCount" value="${count / pageSize + ( count % pageSize == 0 ? 0 : 1)}"/>
    					<c:set var="startPage" value="${pageGroupSize*(numPageGroup-1)+1}"/>
@@ -116,12 +117,14 @@
         			<a href="./list.do?pageNum=${numPageGroup*pageGroupSize+1}">[다음]</a>
    				</c:if>
 				</c:if>		
+				</div>
+				
 					<div style="text-align:right">
 						<input type=button class="btn btn-success" value="작성하기" OnClick="window.location='writeform.jsp'">
 					</div>
 					<div id="searchForm" style="text-align:center">
 					
-						<form action="/board/list.do" method="get">
+						<form action="/board/list.do?" method="get">
 							<select name="opt">
 								<option value="0">제목</option>
 								<option value="1">내용</option>
@@ -131,8 +134,9 @@
 							<input class="btn btn-secondary" type="submit" value="검색"/>
 						</form>
 					</div>
+					
      		 </div>
-	  		</div>
+	  </div>
 
     <!-- /#page-content-wrapper -->
 

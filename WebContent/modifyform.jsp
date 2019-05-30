@@ -35,7 +35,7 @@
 	<div style="text-align:right">
 		사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'">
 	</div>
-	<form action ="/board/modify.do" method="post">
+	<form id="inform" action ="/board/modify.do" method="post">
 		<c:forEach items="${articleList}" var="article">
 			<input type="hidden" name="num" value="${article.num}">
 			<table class="table table-striped table-bordered table-hover" style="text-align:center">
