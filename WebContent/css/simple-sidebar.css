@@ -7,6 +7,121 @@ body {
   overflow-x: hidden;
 }
 
+#logo{
+	text-decoration:none;
+	font-size:15px;
+	font-weight:bold;
+	color: black;
+	font: "Trebuchet Unicode MS";
+}
+
+
+
+
+.menubar{
+border:none;
+border:0px;
+margin:0px;
+padding:0px;
+font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+font-size:14px;
+font-weight:bold;
+height:50px;
+}
+
+.menubar ul{
+background: #932c47;
+height:50px;
+list-style:none;
+margin:0;
+padding:0;
+text-align:center;
+}
+
+.menubar li{
+	height:50px;
+width:19%;
+display:inline-block;
+float:none;
+padding:0px;
+margin:0px;
+}
+
+.menubar li a{
+	display:block;
+background: #932c47;
+color:#cccccc;
+float:none;
+font-weight:normal;
+line-height:50px;
+height:50px;
+margin:0px;
+padding:0px;
+text-align:center;
+text-decoration:none;
+}
+
+.menubar li a:hover, .menubar ul li:hover a{
+height:50px;
+background: #B40431;
+color:#FFFFFF;
+text-decoration:none;
+margin:0px;
+}
+
+.menubar li ul{
+background: #932c47;
+display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+height:auto;
+padding:0px;
+margin:0px;
+border:0px;
+position:absolute;
+z-index:200;
+	width:19%;
+/*top:1em;
+/*left:0;*/
+}
+
+.menubar li:hover ul{
+display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+}
+
+.menubar li li {
+background: #932c47;
+display:block;
+margin:0px;
+padding:0px;
+	width:100%;
+}
+
+.menubar li:hover li a{
+
+background:none;
+}
+
+.menubar li ul a{
+display:block;
+height:50px;
+font-size:12px;
+font-style:normal;
+margin:0px;
+padding:0px 10px 0px 15px;
+text-align:left;
+	width:100%;
+}
+
+.menubar li ul a:hover, .menubar li ul li:hover a{
+background: #B40431;
+height:50px;
+border:0px;
+color:#ffffff;
+text-decoration:none;
+	width:100%;
+}
+
+
+
 #sidebar-wrapper {
   min-height: 100vh;
   margin-left: -15rem;

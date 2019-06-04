@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 public class board {
 	//��ȣ
 	private int num;
+	private int commcount;
 	
 	//����
 	private String subject;
@@ -38,6 +39,8 @@ public class board {
 	
 	//�˻�����
 	public String condition;
+	
+	
 	
 	public String getOpt() {
 		return opt;
@@ -151,6 +154,7 @@ public class board {
     	int count = 0;
     	board board = new board();
     	count = board.getCount(request, response,opt,condition);
+    	int commCount=0;
     	
     	//占쏙옙회占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙
     	int score = 0;
@@ -182,19 +186,22 @@ public class board {
     		stmt = conn.createStatement();    		
     		rs = stmt.executeQuery(query);    		
     		
+    		
     		//占쏙옙회占쏙옙 占쏙옙占쏙옙트占쏙옙 占쌨아울옙
     		for(int i = 0; i < count ;i++,rs.next()){
     			if(startRow <= i && i <= endRow)
     			{
     				board article = new board();
-    				article.setNum(rs.getInt("num"));    			
+    				article.setNum(rs.getInt("num"));    	
+    				commCount = board.getCommCount();
     				article.setSubject(rs.getString("subject"));
-    				article.setContent(rs.getString("content"));
+//    				article.setContent(rs.getString("content"));
     				article.setId(rs.getString("id"));
     				article.setBoarddate(rs.getString("boarddate"));
     				score = Integer.parseInt(rs.getString("score")) + 1;
     				article.setScore(String.valueOf(score));
-    				article.setEmail(rs.getString("email"));
+//    				article.setEmail(rs.getString("email"));
+    				article.setCommCount(commCount);
     				articleList.add(article);
     			}
     		}
@@ -202,6 +209,7 @@ public class board {
     		String query2 =  "UPDATE board SET score='" + score +    						
 					"' WHERE num=" + num;    		
     		stmt.executeUpdate(query2); 
+    		
     		return articleList;
     		} catch(SQLException ex){
     		
@@ -214,5 +222,21 @@ public class board {
 		
     	return articleList;
 
+	}
+	public void setCommCount(int commCount) {
+		this.commcount = commCount;
+	}
+	
+	public int getCommCount() {
+		int commCount=0;
+		comment comm = new comment();
+		try {
+			commCount = comm.getCount(num);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return commCount;
 	}
 }

@@ -20,26 +20,53 @@
 
 </head>
 
-<body>
-  <div style="text-align:right">
-  	<a href="main.jsp" style="margin-right:10px">main</a>
-  </div>	
-  <div class="bg-bugundy border-right" id="mainbar-wrapper">
-    <div class="list-group list-group-horizontal">
-      <a href="#" class="list-group-item list-group-item-action bg-bugundy">학점관리</a>
-      <a href="#" class="list-group-item list-group-item-action bg-bugundy">공학인증</a>
-      <a href="#" class="list-group-item list-group-item-action bg-bugundy">포트폴리오</a>
-      <a href="#" class="list-group-item list-group-item-action bg-bugundy">자기소개서</a>
-      <a href="#" class="list-group-item list-group-item-action bg-bugundy">자유게시판</a>
-    </div>
+<body>	
+  <a id="logo" href="main.jsp"><img src="./img/cbnu.jpg" height="40px" width="40px"/>충북대학교 학적 게시판</a>
+  <!-- main wrapper -->
+  <div class="menubar">
+	<ul>
+ 		<li id="first"><a href="#">학점관리</a>
+			<ul>
+     			<li><a href="#">학적등록</a></li>
+    			<li><a href="#">학적확인</a></li>
+		    </ul>
+		</li>
+ 		<li id="second"><a href="#" id="current">공학인증</a>
+			<ul>
+     			<li><a href="#">공학인증 과목</a></li>
+    			<li><a href="#">남은 공학인증 과목</a></li>
+			    <li><a href="#">남은 공학인증 학점</a></li>
+		    </ul>
+	   </li>
+ 	   <li id="third"><a href="#">포트폴리오</a>
+			<ul>
+     			<li><a href="#">포트폴리오 등록</a></li>
+    			<li><a href="#">포트폴리오 출력</a></li>
+			    <li><a href="#">내 포트폴리오</a></li>
+		    </ul>
+	   </li>
+ 	   <li id="fourth"><a href="#">자기소개서</a>
+			<ul>
+     			<li><a href="#">자기소개서 등록</a></li>
+    			<li><a href="#">자기소개서 게시판</a></li>
+		    </ul>
+	   </li>
+ 	   <li id="fifth"><a href="#">자유게시판</a>
+			<ul>
+     			<li><a href="/board/list.do">게시판</a></li>
+		    </ul>
+	   </li>
+	</ul>
   </div>
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
     <div class="bg-bugundy border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">자유게시판</div>
+      <div class="sidebar-heading">개인 메뉴</div>
       <div class="list-group list-group-flush">
-        <a href="/board/list.do" class="list-group-item list-group-item-action bg-bugundy">자유게시판</a>
+        <a href="/board/logout.do" class="list-group-item list-group-item-action bg-bugundy">로그아웃</a>
+        <a href="#" class="list-group-item list-group-item-action bg-bugundy">회원정보 수정</a>
+        <a href="#" class="list-group-item list-group-item-action bg-bugundy">회원탈퇴</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -50,17 +77,8 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <button class="btn btn-primary" id="menu-toggle">Menu</button>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+              사용자ID : ${id}
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              사용자ID : ${id}<input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'" style="margin-left:100">
-            </li>
-          </ul>
-        </div>
       </nav>
 
       <div class="container-fluid" >
@@ -79,7 +97,7 @@
 					<c:forEach items="${articleList}" var="article">
 				<tr>
 					<th style="text-align:center">${article.num}</th>
-					<th style="text-align:left"><a href="content.do?num=${article.num}" OnClick="location.href='comments.do?num=${article.num}'">${article.subject}</a></th>
+					<th style="text-align:left"><a href="content.do?num=${article.num}" OnClick="location.href='comments.do?num=${article.num}'">${article.subject} [${article.commCount}]</a></th>
 					<th style="text-align:center">${article.id}</th>
 					<th style="text-align:center">${article.boarddate}</th>
 					<th style="text-align:center">${article.score}</th>			

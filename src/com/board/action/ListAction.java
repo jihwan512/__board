@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.board.beans.board;
+import com.board.beans.comment;
 import com.board.controller.CommandAction;
  
 public class ListAction implements CommandAction {
@@ -41,8 +42,10 @@ public class ListAction implements CommandAction {
     	 int endRow = currentPage * pageSize;//한 페이지의 마지막 글번호
     	 int count = 0;
     	 int number=0;
-
+    	 
+    	 
     	board board = new board();
+    	
     	
     	count = board.getCount(request, response,opt,condition);
     	//�˻��ɼǰ� �˻����� �޾� ������ ����
@@ -75,6 +78,8 @@ public class ListAction implements CommandAction {
             articleList = null;
     		}
     		number=count-(currentPage-1)*pageSize;//글목록에 표시할 글번호
+    		
+    		
     		
     		//페이지그룹의 갯수 
             //ex) pageGroupSize가 3일 경우 '[1][2][3]'가 pageGroupCount 개 만큼 있다.  
