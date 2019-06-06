@@ -22,7 +22,6 @@ public class ListAction implements CommandAction {
     	request.setCharacterEncoding("UTF-8");
     	String opt = request.getParameter("opt");
     	String condition = request.getParameter("condition");
-    	System.out.println(condition);
  
     	Class.forName("com.mysql.jdbc.Driver");    	    
     	Connection conn = null;

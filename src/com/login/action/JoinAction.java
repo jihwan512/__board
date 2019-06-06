@@ -49,8 +49,7 @@ public class JoinAction implements CommandAction {
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
     		
 			//각 ?에 해당하는 변수들을 넣어준다.
-      		pstmt = conn.prepareStatement(
-    				"insert into user values(?,?,?,?,now())");
+      		pstmt = conn.prepareStatement("insert into user values(?,?,?,?,now())");
     				pstmt.setString(1, id);
     				pstmt.setString(2, password);
     				pstmt.setString(3, name);
@@ -58,13 +57,13 @@ public class JoinAction implements CommandAction {
     				
     		// pstmt에 저장된 쿼리 실행
     				pstmt.executeUpdate();
+    				pstmt.close();
     				
-    				pstmt = conn.prepareStatement(
-    	    				"insert into subject values(?)");
-    	    				pstmt.setString(1, id);
+    		pstmt = conn.prepareStatement("insert into subject values(?)");
+    	    		pstmt.setString(1, id);
     	    				
     	    		// pstmt에 저장된 쿼리 실행
-    	    				pstmt.executeUpdate();
+    	    		pstmt.executeUpdate();
     		
     		//로그인 관련 세션 선언
     		HttpSession session = request.getSession();
