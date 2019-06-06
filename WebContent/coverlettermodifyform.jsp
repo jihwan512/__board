@@ -89,8 +89,8 @@ else {
       <div class="sidebar-heading">개인 메뉴</div>
       <div class="list-group list-group-flush">
         <a href="/board/logout.do" class="list-group-item list-group-item-action bg-bugundy">로그아웃</a>
-        <a href="#" class="list-group-item list-group-item-action bg-bugundy">회원정보 수정</a>
-        <a href="#" class="list-group-item list-group-item-action bg-bugundy">회원탈퇴</a>
+        <a href="/board/infomodifyform.do" class="list-group-item list-group-item-action bg-bugundy">회원정보 수정</a>
+        <a href="/board/retireconfirm.jsp" class="list-group-item list-group-item-action bg-bugundy">회원탈퇴</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

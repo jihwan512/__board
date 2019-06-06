@@ -1,10 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,39 +10,20 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>게시글 수정</title>
+
+
+  <title>회원 탈퇴</title>
 
   <!-- Bootstrap core CSS -->
   <link href="./css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="./css/simple-sidebar.css" rel="stylesheet">
-<script> 
-function writeCheck()
-{
- var form = document.getElementById("inform");
- 
-if( !form.subject.value )
- {
-  	alert( "제목을 적어주세요" );
-  	form.subject.focus();
-  	return false;
- }
-else if( !form.content.value )
- {
-  	alert( "내용을 적어주세요" );
-  	form.content.focus();
-  	return false;
- } 
-else {
-	  return true;
-}
-}
- 	</script>
+
 </head>
 
 <body>
-<a id="logo" href="main.jsp"><img src="./img/cbnu.jpg" height="40px" width="40px"/>충북대학교 학적 게시판</a>
+   <a id="logo" href="main.jsp"><img src="./img/cbnu.jpg" height="40px" width="40px"/>충북대학교 학적 게시판</a>
   <!-- main wrapper -->
   <div class="menubar">
 	<ul>
@@ -101,56 +80,38 @@ else {
         <button class="btn btn-primary" id="menu-toggle" style="margin-right:10px;">Menu</button> 
              	사용자ID : ${id}
       </nav>
+	<!-- 	</div> -->
+      
+<!------------------------------------컨텐츠 부분 ------------------------------------------->
+	 
+	 <div class="modal in" style="display: inline;">
+  <div class="modal-dialog" style="text-align:center;">
+    <div class="modal-content">
+      <div class="modal-header" >
+        <h4 class="modal-title" >Are you sure?</h4>
+      </div>
+      <div class="modal-body" style="text-align:center;">
+        <p>정말로 탈퇴를 하시겠습니까?</p>
+            <input type="button" class="btn btn-success btn-md" value="Yes" OnClick="window.location='/board/retire.do'">
+            <input type="button" class="btn btn-danger btn-md" value="No" onClick="history.back();">
+      </div>
+   
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
-      <div class="container-fluid">
-<!--         		<div style="text-align:right"> -->
-<%-- 	사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'" style="margin-left:100"> --%>
-<!-- 	</div> -->
-	<form id="inform" action ="/board/modify.do" method="post" onsubmit="return writeCheck();">
-		<c:forEach items="${articleList}" var="article">
-			<input type="hidden" name="num" value="${article.num}">
-			<table class="table table-striped table-bordered table-hover" style="text-align:center;">
-				<caption style="text-align:center; caption-side: top;">게시판 수정</caption>		
-				<tr>
-					<td>제목</td>
-					<td style="text-align:left"><input type="text" name="subject" value="${article.subject}" style="width: 1150"></td>
-				</tr>
-				<tr>	
-					<td>작성자</td>
-					<td style="text-align:left">${article.id}</td>
-				</tr>
-				<tr>	
-					<td>작성일자</td>
-					<td style="text-align:left">${article.boarddate}</td>
-				</tr>
-				<tr>	
-					<td>email</td>
-					<td style="text-align:left">${article.email}</td>
-				</tr>
-				<tr>	
-					<td>내용</td>
-					<td style="text-align:left"><textarea name="content" rows="10" cols="130" placeholder="내용을 입력하세요" form="inform">${article.content}</textarea></td>
-				</tr>	
-				<tr>
-					<td></td>
-					<td style="text-align:right">
-						<input type=submit class="btn btn-warning" value="수정" Onclick="javascript:writeCheck();">
-						<input type=button class="btn btn-secondary" value="취소" OnClick="window.location='content.do?num=${article.num}'">
-					</td>
-				</tr>	
-			</table>
-		</c:forEach>
-	</form>
+	 
+	 
+	 </div>
 
     <!-- /#page-content-wrapper -->
-    </div>
-</div>
+
   </div>
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor1/jquery/jquery.min.js"></script>
-  <script src="vendor1/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="jquery/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
 
   <!-- Menu Toggle Script -->
   <script>

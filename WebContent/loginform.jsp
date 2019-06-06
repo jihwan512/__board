@@ -206,7 +206,11 @@ button:active {
 
 <div class="page-container">
             
+<<<<<<< HEAD
             <form action="join.do" method="POST">
+=======
+            <form action="/board/join.do" method="POST">
+>>>>>>> branch 'master' of https://github.com/jihwan512/__board.git
 			<h1>Sign Up</h1>
                 <input type="text" name="id" class="Name" placeholder="ID">
                 <input type="text" name="password" class="Tele" placeholder="PASSWORD">
