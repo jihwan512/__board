@@ -1,6 +1,6 @@
-package com.subject.action;
+package com.subject.beans;
 
-public class subject {
+public class Subject {
 	private String id;
     private String sub1;
     private String sub2;
