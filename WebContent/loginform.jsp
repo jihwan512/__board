@@ -266,7 +266,7 @@ button:active {
 <div>
     <video  playsinline autoplay muted loop>
 <!-- <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/fashion.webm" type="video/webm"> -->
-<source src="./img/back1.mp4" type="video/mp4"> 
+<source src="./img/back.mp4" type="video/mp4"> 
 </video>
 
 <div id="fashion">
