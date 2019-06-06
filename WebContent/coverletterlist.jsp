@@ -143,7 +143,7 @@
 					</div>
 					<div id="searchForm" style="text-align:center">
 					
-						<form action="/board/coverletterlist?" method="get">
+						<form action="/board/coverletterlist.do" method="post">
 							<select name="opt">
 								<option value="0">제목</option>
 								<option value="1">내용</option>
