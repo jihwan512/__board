@@ -61,6 +61,9 @@
 	.contact-form button:focus{
 		box-shadow:none;
 	}
+	.form-control{
+		width:250px
+	}
 </style>
 
 </head>
@@ -147,27 +150,28 @@
 			
 			
 				<div class="form-group">
-				  <label class="control-label col-sm-2" for="fname">Id:</label>
+				  <label class="control-label col-sm-2" for="fname">Id</label>
 				  <div class="col-sm-10">          
-					<input type="text" class="form-control" id="fname" placeholder="${log.id}" name="fname">
+				  ${log.id}
+					<input type="hidden" class="form-control" id="id" value="${log.id}" name="id">
 				  </div>
 				</div>
 				<div class="form-group">
-				  <label class="control-label col-sm-2" for="lname">Password:</label>
+				  <label class="control-label col-sm-2" for="lname">Password</label>
 				  <div class="col-sm-10">          
-					<input type="text" class="form-control" id="lname" placeholder="${log.password}" name="lname">
+					<input type="text" class="form-control" id="password" value="${log.password}" name="password">
 				  </div>
 				</div>
 				<div class="form-group">
-				  <label class="control-label col-sm-2" for="email">Email:</label>
+				  <label class="control-label col-sm-2" for="email">Email</label>
 				  <div class="col-sm-10">
-					<input type="email" class="form-control" id="email" placeholder="${log.email}" name="email">
+					<input type="email" class="form-control" id="email" value="${log.email}" name="email">
 				  </div>
 				</div>
 				<div class="form-group">
-				  <label class="control-label col-sm-2" for="email">Name:</label>
+				  <label class="control-label col-sm-2" for="fname">Name</label>
 				  <div class="col-sm-10">
-					<input type="email" class="form-control" id="name" placeholder="${log.name}" name="email">
+					<input type="text" class="form-control" id="name" value="${log.name}" name="name">
 				  </div>
 				</div>
 				
