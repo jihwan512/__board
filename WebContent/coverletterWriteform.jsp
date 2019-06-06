@@ -47,8 +47,8 @@
 	   </li>
  	   <li id="fourth"><a href="#">자기소개서</a>
 			<ul>
-     			<li><a href="#">자기소개서 등록</a></li>
-    			<li><a href="#">자기소개서 게시판</a></li>
+     			<li><a href="/board/coverletterWriteform.jsp">자기소개서 등록</a></li>
+    			<li><a href="/board/coverletterlist.do">자기소개서 게시판목록</a></li>
 		    </ul>
 	   </li>
  	   <li id="fifth"><a href="#">자유게시판</a>
