@@ -1,7 +1,7 @@
-create table usr(
-  id varchar(200) primary key,-- 아이디
-  password varchar(200), -- 비밀번호
-  name varchar(200), -- 이름
-  email varchar(200),  -- 이메일
-  createdate date -- 생성일자
-  );
+CREATE TABLE `user` (
+  `id` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `name` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `createdate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
