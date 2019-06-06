@@ -48,8 +48,68 @@ function writeCheck()
   
 <link href="CSS/style.css" rel="stylesheet" type="text/css" />
 <style>
+@font-face {
+  font-family: Moderne Sans;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/moderne_sans.woff2)
+}
+* {
+  box-sizing: border-box;
+}
 body {
-background:url(http://www.cbiz.kr/news/photo/201904/16118_20182_3038.jpg);
+  margin: 0;
+  background: #000;
+  background-size: cover;
+}
+video { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+div#fashion {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  color: white;
+  transition: .4s;
+}
+header:hover {
+  background: rgba(255,255,255,0.8);
+  color: #000;
+}
+h1 {
+  font-family: Moderne Sans, sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  width: 100%;
+  letter-spacing: .5rem;
+}
+nav a {
+  text-decoration: none;
+  color: inherit;
+  padding: 1rem;
+}
+h2 { 
+  font-family: Century Schoolbook, Century Schoolbook L, Georgia, serif;
+  font-size: 8vmin;
+  text-align: center;
+  margin: 2rem 3rem 0;
+  mix-blend-mode: overlay;
+  color: #fff;
+  font-weight: 100;
+}
+body {
+/* background:url(http://www.cbiz.kr/news/photo/201904/16118_20182_3038.jpg); */
+background:url(./img/back1.mp4);
 font-family:'PT Sans',Helvetica, Arial, sans-serif;
 color:#fff;
    background-repeat: no-repeat;
@@ -203,21 +263,26 @@ button:active {
 <title>회원가입</title>
 </head>
 <body>
+<div>
+    <video  playsinline autoplay muted loop>
+<!-- <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/fashion.webm" type="video/webm"> -->
+<source src="./img/back1.mp4" type="video/mp4"> 
+</video>
 
-<div class="page-container">
-            
-<<<<<<< HEAD
-            <form action="join.do" method="POST">
-=======
-            <form action="/board/join.do" method="POST">
->>>>>>> branch 'master' of https://github.com/jihwan512/__board.git
-			<h1>Sign Up</h1>
+<div id="fashion">
+  <form action="/board/join.do" method="POST">
+
+				<h1>Sign Up</h1>
                 <input type="text" name="id" class="Name" placeholder="ID">
                 <input type="text" name="password" class="Tele" placeholder="PASSWORD">
 				<input type="text" name="email" class="Email" placeholder="EMAIL">
 				<input type="text" name="name" class="Address" placeholder="NAME">
                 <button type="submit" value="Add" name="submit">Submit</button>
             </form>
+</div>
+<!-- </div> -->
+<!-- <div class="page-container"> -->
+            
 </div>
 </body>
 </html>
