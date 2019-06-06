@@ -43,9 +43,12 @@ public class RetireAction implements CommandAction {
     		
     			String sql = "DELETE FROM user WHERE id='" + id+"'";	    			
     			stmt.executeUpdate(sql);	    
+    			sql = "DELETE FROM subject WHERE id='" + id+"'";	    			
+    			stmt.executeUpdate(sql);
     			
     			stmt.close();
     			conn.close();
+    			
     			
     	 	} catch(SQLException e) {
     			System.out.println( e.toString() );

@@ -59,12 +59,11 @@ public class JoinAction implements CommandAction {
     				pstmt.executeUpdate();
     				pstmt.close();
     				
-    		pstmt = conn.prepareStatement("insert into subject values(?)");
+    		pstmt = conn.prepareStatement("insert into subject (id) values(?)");
     	    		pstmt.setString(1, id);
     	    				
     	    		// pstmt에 저장된 쿼리 실행
     	    		pstmt.executeUpdate();
-    		
     		//로그인 관련 세션 선언
     		HttpSession session = request.getSession();
     		
