@@ -107,6 +107,7 @@ else {
 <!--         		<div style="text-align:right"> -->
 <%-- 	사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'" style="margin-left:100"> --%>
 <!-- 	</div> -->
+
 	<form id="inform" action ="/board/write.do" method="post" onsubmit="return writeCheck();">
 		<table class="table table-striped table-bordered table-hover" style="text-align:center;">
 			<caption style="text-align:center; caption-side: top;">게시글 작성</caption>
