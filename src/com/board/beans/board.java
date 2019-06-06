@@ -15,6 +15,7 @@ public class board {
 	//��ȣ
 	private int num;
 	private int commcount;
+	private int select;
 	
 	//����
 	private String subject;
@@ -96,7 +97,7 @@ public class board {
 	public void setScore(String score) {
 		this.score = score;
 	}
-	public int getCount(HttpServletRequest request, HttpServletResponse response, String opt, String condition) throws Throwable {
+	public int getCount(HttpServletRequest request, HttpServletResponse response, String opt, String condition,int select) throws Throwable {
 		
 			    	Class.forName("com.mysql.jdbc.Driver");    	    
 			    	Connection conn = null;
@@ -114,14 +115,27 @@ public class board {
 			    		String query = null; 
 			   
 			    		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-			    		if(opt == null){    			
-			    			query = "select * from board order by num desc";
-			    		}else if(opt.equals("0")){    			
-			    			query = "select * from board where subject like '%"+condition+"%' order by num desc";        		
-			    		}else if(opt.equals("1")){    			
-			    			query = "select * from board where content like '%"+condition+"%' order by num desc";        		
-			    		}else if(opt.equals("2")){    			
-			    			query = "select * from board where id like '%"+condition+"%' order by num desc";        		
+			    		if(select == 1) {
+			    			if(opt == null){    			
+			    				query = "select * from board order by num desc";
+			    			}else if(opt.equals("0")){    			
+			    				query = "select * from board where subject like '%"+condition+"%' order by num desc";        		
+			    			}else if(opt.equals("1")){    			
+			    				query = "select * from board where content like '%"+condition+"%' order by num desc";        		
+			    			}else if(opt.equals("2")){    			
+			    				query = "select * from board where id like '%"+condition+"%' order by num desc";        		
+			    			}
+			    		}
+			    		else if(select == 2) {
+			    			if(opt == null){    			
+			    				query = "select * from coverletter order by num desc";
+			    			}else if(opt.equals("0")){    			
+			    				query = "select * from coverletter where subject like '%"+condition+"%' order by num desc";        		
+			    			}else if(opt.equals("1")){    			
+			    				query = "select * from coverletter where content like '%"+condition+"%' order by num desc";        		
+			    			}else if(opt.equals("2")){    			
+			    				query = "select * from coverletter where id like '%"+condition+"%' order by num desc";        		
+			    			}
 			    		}
 			    		stmt = conn.createStatement();    		
 			    		rs = stmt.executeQuery(query);    		
@@ -140,7 +154,7 @@ public class board {
 			    	}
 		return count;
 	}
-	public ArrayList<board> select(int startRow,int endRow,HttpServletRequest request, HttpServletResponse response, String opt, String condition)
+	public ArrayList<board> select(int startRow,int endRow,HttpServletRequest request, HttpServletResponse response, String opt, String condition,int select)
 		throws Throwable {
 		
 		ArrayList<board> articleList = new ArrayList<board>();
@@ -153,7 +167,7 @@ public class board {
     	
     	int count = 0;
     	board board = new board();
-    	count = board.getCount(request, response,opt,condition);
+    	count = board.getCount(request, response,opt,condition,select);
     	int commCount=0;
     	
     	//占쏙옙회占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙
@@ -173,16 +187,28 @@ public class board {
     		String query = null; 
 
     		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-    		if(opt == null){    			
-    			query = "select * from board order by num desc";
-    		}else if(opt.equals("0")){    			
-    			query = "select * from board where subject like '%"+condition+"%' order by num desc";        		
-    		}else if(opt.equals("1")){    			
-    			query = "select * from board where content like '%"+condition+"%' order by num desc";        		
-    		}else if(opt.equals("2")){    			
-    			query = "select * from board where id like '%"+condition+"%' order by num desc";        		
+    		if(select == 1) {
+    			if(opt == null){    			
+    				query = "select * from board order by num desc";
+    			}else if(opt.equals("0")){    			
+    				query = "select * from board where subject like '%"+condition+"%' order by num desc";        		
+    			}else if(opt.equals("1")){    			
+    				query = "select * from board where content like '%"+condition+"%' order by num desc";        		
+    			}else if(opt.equals("2")){    			
+    				query = "select * from board where id like '%"+condition+"%' order by num desc";        		
+    			}
     		}
-//    		System.out.println("condition & opt  " + opt +"   "+ condition);
+    		else if(select == 2) {
+    			if(opt == null){    			
+    				query = "select * from coverletter order by num desc";
+    			}else if(opt.equals("0")){    			
+    				query = "select * from coverletter where subject like '%"+condition+"%' order by num desc";        		
+    			}else if(opt.equals("1")){    			
+    				query = "select * from coverletter where content like '%"+condition+"%' order by num desc";        		
+    			}else if(opt.equals("2")){    			
+    				query = "select * from coverletter where id like '%"+condition+"%' order by num desc";        		
+    			}
+    		}
     		stmt = conn.createStatement();    		
     		rs = stmt.executeQuery(query);    		
     		
@@ -192,8 +218,10 @@ public class board {
     			if(startRow <= i && i <= endRow)
     			{
     				board article = new board();
+    				article.setNum(rs.getInt("num"));
+    				article.setSelect(select);
     				article.setNum(rs.getInt("num"));    	
-    				commCount = board.getCommCount();
+    				commCount = article.getCommCount();
     				article.setSubject(rs.getString("subject"));
 //    				article.setContent(rs.getString("content"));
     				article.setId(rs.getString("id"));
@@ -231,12 +259,18 @@ public class board {
 		int commCount=0;
 		comment comm = new comment();
 		try {
-			commCount = comm.getCount(num);
+			commCount = comm.getCount(num,select);
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return commCount;
+	}
+	public void setSelect(int select) {
+		this.select = select;
+	}
+	public int getSelect() {
+		return this.select;
 	}
 }

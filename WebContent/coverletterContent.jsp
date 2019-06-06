@@ -119,10 +119,10 @@
 	</table>
 	<div style="text-align:right">
 		<c:if test="${article.id eq id}">
-			<input type=button class="btn btn-danger" value="삭제하기" OnClick="window.location='delete.do?num=${article.num}'">
-			<input type=button class="btn btn-warning" value="수정하기" OnClick="window.location='modifyform.do?num=${article.num}'">	
+			<input type=button class="btn btn-danger" value="삭제하기" OnClick="window.location='coverletterdelete.do?num=${article.num}'">
+			<input type=button class="btn btn-warning" value="수정하기" OnClick="window.location='coverlettermodifyform.do?num=${article.num}'">	
 		</c:if>		
-		<input type=button class="btn btn-secondary" value="돌아가기" OnClick="window.location='list.do'">
+		<input type=button class="btn btn-secondary" value="돌아가기" OnClick="window.location='coverletterlist.do'">
 	</div>
 	</c:forEach>		
 	<br><br>
@@ -142,7 +142,7 @@
 			<td style="text-align-last:justify;">${comments.comment}
 			<c:if test="${comments.id eq id}">
 				<%int num=Integer.parseInt(request.getParameter("num")); %>
-				<input type=button class="btn btn-danger" value="삭제하기" OnClick="window.location='commentsdelete.do?num=${comments.num}&boardnum=<%=num%>'" >
+				<input type=button class="btn btn-danger" value="삭제하기" OnClick="window.location='coverlettercommentsdelete.do?num=${comments.num}&boardnum=<%=num%>'" >
 			</c:if>
 			</td>
 		</tr>
@@ -150,7 +150,7 @@
 	</table>
 	
 	<c:forEach items="${articleList}" var="article">
-	<form id="inform" action="/board/commentsWrite.do?num=${article.num}" method="post" style="margin-bottom:10;" onsubmit="return writeCheck();">
+	<form id="inform" action="/board/covercommentsWrite.do?num=${article.num}" method="post" style="margin-bottom:10;" onsubmit="return writeCheck();">
 		<table class="table table-striped table-bordered table-hover" style="text-align:left; ">
 			<tr>
 				<td width="250px">${id} (${email})</td>

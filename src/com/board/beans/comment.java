@@ -57,7 +57,7 @@ public class comment {
 	public void setdate(String date) {
 		this.date = date;
 	}
-	public int getCount(int boardNum) throws Throwable {
+	public int getCount(int boardNum,int select) throws Throwable {
 		
     	Class.forName("com.mysql.jdbc.Driver");    	    
     	Connection conn = null;
@@ -72,16 +72,21 @@ public class comment {
     		String dbUser = "root";
     		String dbPass = "root";
     		String query = null; 
-    		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);		
-    		query = "select * from board.comments where boardNum = " + boardNum;
+    		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+    		
+    		if(select == 1) {
+    			query = "select * from board.comments where boardNum = " + boardNum;
+    		}
+    		else if(select == 2) {
+    			query = "select * from board.covercomments where boardNum = " + boardNum;
+    		}
 
     		stmt = conn.createStatement();    		
     		rs = stmt.executeQuery(query);    		
-    		
+
     		while(rs.next()){
     			count++;
     		}
-
     	} catch(SQLException ex){
     		
     	} finally{

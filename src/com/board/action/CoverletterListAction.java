@@ -14,7 +14,7 @@ import com.board.beans.board;
 import com.board.beans.comment;
 import com.board.controller.CommandAction;
  
-public class ListAction implements CommandAction {
+public class CoverletterListAction implements CommandAction {
 	
     public String requestPro(HttpServletRequest request,
  
@@ -47,7 +47,7 @@ public class ListAction implements CommandAction {
     	board board = new board();
     	
     	
-    	count = board.getCount(request, response,opt,condition,1);
+    	count = board.getCount(request, response,opt,condition,2);
     	//�˻��ɼǰ� �˻����� �޾� ������ ����
     	
     	try {
@@ -72,7 +72,7 @@ public class ListAction implements CommandAction {
                 {
                         endRow = count;
                 }
-            articleList = board.select(startRow,endRow, request, response,opt,condition,1);//현재 페이지에 해당하는 글 목록
+            articleList = board.select(startRow,endRow, request, response,opt,condition,2);//현재 페이지에 해당하는 글 목록
             
     		} else {
             articleList = null;
@@ -110,7 +110,7 @@ public class ListAction implements CommandAction {
     		if(conn != null) try{conn.close();} catch(SQLException ex) {}
     	}
  
-        return "list.jsp";
+        return "coverletterlist.jsp";
  
     }
  

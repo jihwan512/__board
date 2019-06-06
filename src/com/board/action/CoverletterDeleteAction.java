@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.board.controller.CommandAction;
  
-public class DeleteAction implements CommandAction {
+public class CoverletterDeleteAction implements CommandAction {
  
     public String requestPro(HttpServletRequest request,
  
@@ -38,11 +38,11 @@ public class DeleteAction implements CommandAction {
     		conn = DriverManager.getConnection(url,dbUser,dbPass);
     		stmt = conn.createStatement();
     		   	
-    			String sql = "DELETE FROM board WHERE num=" + num;	    			
-    			stmt.executeUpdate(sql);	    
+    			String sql = "DELETE FROM coverletter WHERE num=" + num;	    			
+    			stmt.executeUpdate(sql);	    			
     			
-    			sql = "DELETE FROM comments WHERE boardNum=" + num;	    			
-    			stmt.executeUpdate(sql);	
+    			sql = "DELETE FROM covercomments WHERE boardNum=" + num;	    			
+    			stmt.executeUpdate(sql);	    
     			
     			stmt.close();
     			conn.close();
@@ -56,7 +56,7 @@ public class DeleteAction implements CommandAction {
 
     	
  
-        return "delete.jsp";
+        return "coverletterdelete.jsp";
  
     }
  
