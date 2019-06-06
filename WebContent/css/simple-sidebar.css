@@ -124,7 +124,7 @@ text-align:center;
 
 .menubar li{
 	height:50px;
-width:19%;
+width:24%;
 display:inline-block;
 float:none;
 padding:0px;
@@ -162,7 +162,7 @@ margin:0px;
 border:0px;
 position:absolute;
 z-index:200;
-	width:19%;
+	width:24%;
 /*top:1em;
 /*left:0;*/
 }

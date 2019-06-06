@@ -28,24 +28,12 @@
   <!-- main wrapper -->
   <div class="menubar">
 	<ul>
- 		<li id="first"><a href="#">학점관리</a>
-			<ul>
-     			<li><a href="#">학적등록</a></li>
-    			<li><a href="#">학적확인</a></li>
-		    </ul>
+ 		<li id="first"><a href="/board/abeek.do">학점관리</a>
 		</li>
- 		<li id="second"><a href="#" id="current">공학인증</a>
-			<ul>
-     			<li><a href="#">공학인증 과목</a></li>
-    			<li><a href="#">남은 공학인증 과목</a></li>
-			    <li><a href="#">남은 공학인증 학점</a></li>
-		    </ul>
-	   </li>
  	   <li id="third"><a href="#">포트폴리오</a>
 			<ul>
-     			<li><a href="#">포트폴리오 등록</a></li>
-    			<li><a href="#">포트폴리오 출력</a></li>
-			    <li><a href="#">내 포트폴리오</a></li>
+     			<li><a href="/board/list2.jsp">포트폴리오 등록</a></li>
+			    <li><a href="/board/portfolio.do">내 포트폴리오</a></li>
 		    </ul>
 	   </li>
  	   <li id="fourth"><a href="#">자기소개서</a>
@@ -115,11 +103,11 @@
 		<div class="container">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
 					<ul class="list-unstyled list-inline social text-center">
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
