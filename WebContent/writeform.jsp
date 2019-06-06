@@ -49,7 +49,10 @@ else {
   <!-- main wrapper -->
   <div class="menubar">
 	<ul>
- 		<li id="first"><a href="/board/abeek.do">학점관리</a>
+ 		<li id="first"><a href="#">학점관리</a>
+ 		<ul>
+ 			<li><a href="/board/abeek.do">학점관리</a></li>
+		</ul>
 		</li>
  	   <li id="third"><a href="#">포트폴리오</a>
 			<ul>
