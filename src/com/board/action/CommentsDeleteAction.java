@@ -38,7 +38,6 @@ public class CommentsDeleteAction implements CommandAction {
     				
     		conn = DriverManager.getConnection(url,dbUser,dbPass);
     		stmt = conn.createStatement();
-   		   	System.out.println(num);
     			String sql = "DELETE FROM comments WHERE num=" + num;	    			
     			stmt.executeUpdate(sql);	    			
     			

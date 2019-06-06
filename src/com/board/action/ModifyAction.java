@@ -58,7 +58,7 @@ public class ModifyAction implements CommandAction {
 		}
     	
     	
-        return "content.do";
+        return "modify.jsp";
  
     }
  
