@@ -19,39 +19,7 @@
   <link href="./css/simple-sidebar.css" rel="stylesheet">
 
 <style>
-/* Footer */
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-section {
-    padding: 1px;
-}
-
-section .section-title {
-    text-align: center;
-    color: #932c47;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-}
-#footer {
-    background: #932c47 !important;
-}
-#footer ul.social li{
-	padding: 3px 0;
-}
-#footer ul.social li a i {
-    margin-right: 5px;
-	font-size:25px;
-	-webkit-transition: .5s all ease;
-	-moz-transition: .5s all ease;
-	transition: .5s all ease;
-}
-#footer ul.social li:hover a i {
-	font-size:30px;
-	margin-top:5px;
-}
-#footer ul.social li a,
-#footer ul.social li a:hover{
-	color:#eeeeee;
-}
 </style>
 </head>
 

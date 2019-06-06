@@ -23,49 +23,6 @@
   <!-- Custom styles for this template -->
   <link href="./css/simple-sidebar.css" rel="stylesheet">
 
-<style>
-
-	.contact{
-		padding: 4%;
-		height: 400px;
-	}
-	.col-md-3{
-		background: #932c47;
-		padding: 4%;
-		border-top-left-radius: 0.5rem;
-		border-bottom-left-radius: 0.5rem;
-	}
-	.contact-info{
-		margin-top:10%;
-	}
-	.contact-info img{
-		margin-bottom: 15%;
-	}
-	.contact-info h2{
-		margin-bottom: 10%;
-	}
-	.col-md-9{
-		background: #fff;
-		padding: 3%;
-		border-top-right-radius: 0.5rem;
-		border-bottom-right-radius: 0.5rem;
-	}
-	.contact-form label{
-		font-weight:600;
-	}
-	.contact-form button{
-		background: #25274d;
-		color: #fff;
-		font-weight: 600;
-	}
-	.contact-form button:focus{
-		box-shadow:none;
-	}
-	.form-control{
-		width:250px
-	}
-</style>
-
 </head>
 
 <body>
