@@ -85,11 +85,12 @@
 <!------------------------------------컨텐츠 부분 ------------------------------------------->
 	 
 	 <div class="modal in" style="display: inline;">
-  <div class="modal-dialog" style="text-align:center;">
+  <div class="modal-dialog" style="text-align:center; ">
     <div class="modal-content">
-      <div class="modal-header" >
-        <h4 class="modal-title" >Are you sure?</h4>
+      <div>
+        <p style="text-align:center; font-size:30px; padding-top:15px;">Are you sure?</p>
       </div>
+      <hr />
       <div class="modal-body" style="text-align:center;">
         <p>정말로 탈퇴를 하시겠습니까?</p>
             <input type="button" class="btn btn-success btn-md" value="Yes" OnClick="window.location='/board/retire.do'">
