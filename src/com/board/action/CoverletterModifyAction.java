@@ -58,7 +58,7 @@ public class CoverletterModifyAction implements CommandAction {
 		}
     	
     	
-        return "coverlettercontent.do";
+        return "coverlettermodify.jsp";
  
     }
  
