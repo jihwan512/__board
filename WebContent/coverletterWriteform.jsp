@@ -76,8 +76,9 @@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <button class="btn btn-primary" id="menu-toggle">Menu</button>
+         사용자ID : ${id}
         </nav>
-              사용자ID : ${id}
+             
 	<!-- 	</div> -->
       <form id="inform" action ="/board/coverletterwrite.do" method="post" onsubmit="return writeCheck();">
 		<table class="table table-striped table-bordered table-hover" style="text-align:center;">
