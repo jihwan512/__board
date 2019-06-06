@@ -27,7 +27,7 @@
 	<ul>
  		<li id="first"><a href="#">학점관리</a>
 			<ul>
-     			<li><a href="#">학적등록</a></li>
+     			<li><a href="/board/scoreManagement.jsp">학적등록</a></li>
     			<li><a href="#">학적확인</a></li>
 		    </ul>
 		</li>
