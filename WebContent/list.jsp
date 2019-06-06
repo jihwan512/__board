@@ -75,7 +75,7 @@
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Menu</button>
+        <button class="btn btn-primary" id="menu-toggle" style="margin-right:10px;">Menu</button>
 
               사용자ID : ${id}
 
