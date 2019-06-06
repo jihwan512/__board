@@ -214,13 +214,12 @@ public class board {
     		
     		
     		//占쏙옙회占쏙옙 占쏙옙占쏙옙트占쏙옙 占쌨아울옙
-    		for(int i = 0; i < count ;i++,rs.next()){
+    		for(int i = 0; i < count+1 ;i++,rs.next()){
     			if(startRow <= i && i <= endRow)
     			{
     				board article = new board();
     				article.setNum(rs.getInt("num"));
     				article.setSelect(select);
-    				article.setNum(rs.getInt("num"));    	
     				commCount = article.getCommCount();
     				article.setSubject(rs.getString("subject"));
 //    				article.setContent(rs.getString("content"));
