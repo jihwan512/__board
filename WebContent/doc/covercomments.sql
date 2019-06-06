@@ -4,7 +4,7 @@ CREATE TABLE `board`.`covercomments` (
   `id` VARCHAR(200) NULL,
   `email` VARCHAR(200) NULL,
   `date` DATE NULL,
-  `num` INT(11) NOT NULL,
+  `num` INT(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`num`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
