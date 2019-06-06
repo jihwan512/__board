@@ -206,7 +206,7 @@ button:active {
 
 <div class="page-container">
             
-            <form action="#" method="POST">
+            <form action="join.do" method="POST">
 			<h1>Sign Up</h1>
                 <input type="text" name="id" class="Name" placeholder="ID">
                 <input type="text" name="password" class="Tele" placeholder="PASSWORD">
