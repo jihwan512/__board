@@ -25,24 +25,12 @@
   <!-- main wrapper -->
   <div class="menubar">
 	<ul>
- 		<li id="first"><a href="#">학점관리</a>
-			<ul>
-     			<li><a href="#">학적등록</a></li>
-    			<li><a href="#">학적확인</a></li>
-		    </ul>
+ 		<li id="first"><a href="/board/abeek.do">학점관리</a>
 		</li>
- 		<li id="second"><a href="#" id="current">공학인증</a>
-			<ul>
-     			<li><a href="#">공학인증 과목</a></li>
-    			<li><a href="#">남은 공학인증 과목</a></li>
-			    <li><a href="#">남은 공학인증 학점</a></li>
-		    </ul>
-	   </li>
  	   <li id="third"><a href="#">포트폴리오</a>
 			<ul>
-     			<li><a href="#">포트폴리오 등록</a></li>
-    			<li><a href="#">포트폴리오 출력</a></li>
-			    <li><a href="#">내 포트폴리오</a></li>
+     			<li><a href="/board/list2.jsp">포트폴리오 등록</a></li>
+			    <li><a href="/board/portfolio.do">내 포트폴리오</a></li>
 		    </ul>
 	   </li>
  	   <li id="fourth"><a href="#">자기소개서</a>
@@ -75,9 +63,9 @@
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Menu</button>
-         사용자ID : ${id}
-        </nav>
+        <button class="btn btn-primary" id="menu-toggle" style="margin-right:10px;">Menu</button> 
+             	사용자ID : ${id}
+      </nav>
              
 	<!-- 	</div> -->
       <form id="inform" action ="/board/coverletterwrite.do" method="post" onsubmit="return writeCheck();">
