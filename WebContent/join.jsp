@@ -9,7 +9,7 @@
 <body>
 <script>
    self.window.alert("회원가입을 축하합니다.");
-   location.href="list.do"; 
+   location.href="main.jsp"; 
 
 </script>
 </body>
