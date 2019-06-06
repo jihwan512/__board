@@ -10,7 +10,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>main</title>
+
+
+  <title>회원 탈퇴</title>
 
   <!-- Bootstrap core CSS -->
   <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -65,8 +67,8 @@
       <div class="sidebar-heading">개인 메뉴</div>
       <div class="list-group list-group-flush">
         <a href="/board/logout.do" class="list-group-item list-group-item-action bg-bugundy">로그아웃</a>
-        <a href="/board/infomodifyform.do" class="list-group-item list-group-item-action bg-bugundy">회원정보 수정</a>
-        <a href="/board/retireconfirm.jsp" class="list-group-item list-group-item-action bg-bugundy">회원탈퇴</a>
+        <a href="#" class="list-group-item list-group-item-action bg-bugundy">회원정보 수정</a>
+        <a href="#" class="list-group-item list-group-item-action bg-bugundy">회원탈퇴</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -82,7 +84,22 @@
       
 <!------------------------------------컨텐츠 부분 ------------------------------------------->
 	 
-	 
+	 <div class="modal in" style="display: inline;">
+  <div class="modal-dialog" style="text-align:center;">
+    <div class="modal-content">
+      <div class="modal-header" >
+        <h4 class="modal-title" >Are you sure?</h4>
+      </div>
+      <div class="modal-body" style="text-align:center;">
+        <p>정말로 탈퇴를 하시겠습니까?</p>
+            <input type="button" class="btn btn-success btn-md" value="Yes" OnClick="window.location='/board/retire.do'">
+            <input type="button" class="btn btn-danger btn-md" value="No" onClick="history.back();">
+      </div>
+   
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 	 
 	 
 	 </div>
