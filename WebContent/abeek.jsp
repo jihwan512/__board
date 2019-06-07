@@ -14,7 +14,13 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/simple-sidebar.css" rel="stylesheet">
    </head>
-
+<script>
+	var grade = ["1학년","1학년","1학년","1학년","1학년","1학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년"];
+	var semester = ["1학기","1학기","1학기","2학기","2학기","2학기","1학기","1학기","1학기","1학기","1학기","1학기","1학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기","1학기","1학기","1학기","1학기","1학기","1학기","1학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기","1학기","1학기","1학기","1학기","1학기","1학기","1학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기"];
+	var type = ["전필","전선","전선","전필","전선","전선","전필","전필","전선","전선","전선","전선","전선","전필","전필","전필","전선","전선","전선","전선","전필","전필","전선","전선","전선","전선","전선","전필","전필","전선","전선","전선","전선","전선","전선","전필","전선","전선","전선","전선","전선","전선","전필","전선","전선","전선","전선","전선","전선","전선","전선","전선"];
+	var subj = ["이산수학","창의공학설계","미래설계탐색1","컴퓨터시스템개론","소프트웨어도구 실험","미래설계탐색2","논리회로 및 실험","자료구조","객체지향 프로그래밍","선형대수학","오토마타","미래설계준비1","기초프로젝트","컴퓨터구조","프로그래밍언어론","알고리즘","시스템프로그래밍","인간컴퓨터상호작용 프로그래밍","미래설계준비2","개발프로젝트","운영체제","객체지향 설계","웹기반소프트웨어 개발","컴파일러","컴퓨터네트워크","미래설계구현1","전문프로젝트 강추!","소프트웨어공학","산학프로젝트","확률및 통계","펌웨어프로그래밍","데이터통신","데이터통신","컴퓨터그래픽스","미래설계구현2","캡스톤디자인1","임베디드시스템","영상처리","인공지능","산학초청세미나1","컴퓨터교재연구 및 지도법","데이터베이스설계","캡스톤디자인2","그래프이론","정보보호","정보검색","산학초청세미나2","컴퓨터논리 및 논술","컴퓨터논리 및 논술","컴퓨터교육론","빅데이터처리","실험실 프로젝트","정보콘텐츠 SW 프로젝트"];
+	var score = [3, 2, 1, 3, 2, 1, 3, 3, 3, 3, 3, 1, 2, 3, 3, 3, 3, 3, 1, 2, 3, 3, 3, 3, 3, 1, 2, 3, 2, 3, 3, 3, 3, 3, 1, 2, 3, 3, 3, 1, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3];
+</script>
 <body>   
 <script>
 $(document).ready(function(){
@@ -28,7 +34,7 @@ $(document).ready(function(){
 	<ul>
  		<li id="first"><a href="#">학점관리</a>
  		<ul>
- 			<li><a href="/board/abeek.do">학점관리</a></li>
+ 			<li><a href="/board/abeek.jsp">학점관리</a></li>
 		</ul>
 		</li>
  	   <li id="third"><a href="#">포트폴리오</a>
@@ -152,7 +158,16 @@ $(document).ready(function(){
          </table>
       </div>
       
+      
+      
+      
+      
+      <script>
+         
+         
+      </script>
       <form action="abeek.do" method="POST">
+      <c:forEach items="${abeekList}" var="abeek">
       <div id="t1" class="container text-center" style="margin-top: 100px;">
          <h3 style="margin-bottom: 20px;">공학인증 교육 학점 관리</h3>
          <table class="table table-striped table-bordered table-hover">
@@ -163,368 +178,371 @@ $(document).ready(function(){
             <th style="background-color: #932c47; color: white;text-align:center">강좌</th>
             <th style="background-color: #932c47; color: white;text-align:center">학점</th>
          </tr>
+         
          <tr>
             <th style="text-align:center">1학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(0);"><input type="hidden" id="0" name="0" value="0">이산수학</th>
+            
+            <th class="subject" style="text-align:center; backgroundColor:#9fdf9f; color:white;" onclick="select_subject(0);"><input type="hidden" id="0" name="sub0" value="${abeek.sub0}">이산수학</th>
+
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">1학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(1);"><input type="hidden" id="1" name="1" value="0">창의공학설계</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(1);"><input type="hidden" id="1" name="sub1" value="0">창의공학설계</th>
             <th class="credit" style="text-align:center">2</th>
          </tr>
          <tr>
             <th style="text-align:center">1학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(2);"><input type="hidden" id="2" name="2" value="0">미래설계탐색1</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(2);"><input type="hidden" id="2" name="sub2" value="0">미래설계탐색1</th>
             <th class="credit"    style="text-align:center">1</th>
          </tr>
          <tr>
             <th style="text-align:center">1학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(3);"><input type="hidden" id="3" name="3" value="0">컴퓨터시스템개론</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(3);"><input type="hidden" id="3" name="sub3" value="0">컴퓨터시스템개론</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">1학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(4);"><input type="hidden" id="4" name="4" value="0">소프트웨어도구 실험</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(4);"><input type="hidden" id="4" name="sub4" value="0">소프트웨어도구 실험</th>
             <th class="credit"    style="text-align:center">2</th>
          </tr>
          <tr>
             <th style="text-align:center">1학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(5);"><input type="hidden" id="5" name="5" value="0">미래설계탐색2</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(5);"><input type="hidden" id="5" name="sub5" value="0">미래설계탐색2</th>
             <th class="credit"    style="text-align:center">1</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(6);"><input type="hidden" id="6" name="6" value="0">논리회로 및 실험</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(6);"><input type="hidden" id="6" name="sub6" value="0">논리회로 및 실험</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(7);"><input type="hidden" id="7" name="7" value="0">자료구조</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(7);"><input type="hidden" id="7" name="sub7" value="0">자료구조</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(8);"><input type="hidden" id="8" name="8" value="0">객체지향 프로그래밍</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(8);"><input type="hidden" id="8" name="sub8" value="0">객체지향 프로그래밍</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(9);"><input type="hidden" id="9" name="9" value="0">선형대수학</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(9);"><input type="hidden" id="9" name="sub9" value="0">선형대수학</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(10);"><input type="hidden" id="10" name="10" value="0">오토마타</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(10);"><input type="hidden" id="10" name="sub10" value="0">오토마타</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(11);"><input type="hidden" id="11" name="11" value="0">미래설계준비1</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(11);"><input type="hidden" id="11" name="sub11" value="0">미래설계준비1</th>
             <th class="credit"    style="text-align:center">1</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(12);"><input type="hidden" id="12" name="12" value="0">기초프로젝트</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(12);"><input type="hidden" id="12" name="sub12" value="0">기초프로젝트</th>
             <th class="credit"    style="text-align:center">2</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(13);"><input type="hidden" id="13" name="13" value="0">컴퓨터구조</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(13);"><input type="hidden" id="13" name="sub13" value="0">컴퓨터구조</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(14);"><input type="hidden" id="14" name="14" value="0">프로그래밍언어론</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(14);"><input type="hidden" id="14" name="sub14" value="0">프로그래밍언어론</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(15);"><input type="hidden" id="15" name="15" value="0">알고리즘</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(15);"><input type="hidden" id="15" name="sub15" value="0">알고리즘</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(16);"><input type="hidden" id="16" name="16" value="0">시스템프로그래밍</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(16);"><input type="hidden" id="16" name="sub16" value="0">시스템프로그래밍</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(17);"><input type="hidden" id="17" name="17" value="0">인간컴퓨터상호작용 프로그래밍</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(17);"><input type="hidden" id="17" name="sub17" value="0">인간컴퓨터상호작용 프로그래밍</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(18);"><input type="hidden" id="18" name="18" value="0">미래설계준비2</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(18);"><input type="hidden" id="18" name="sub18" value="0">미래설계준비2</th>
             <th class="credit"    style="text-align:center">1</th>
          </tr>
          <tr>
             <th style="text-align:center">2학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(19);"><input type="hidden" id="19" name="19" value="0">개발프로젝트</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(19);"><input type="hidden" id="19" name="sub19" value="0">개발프로젝트</th>
             <th class="credit"    style="text-align:center">2</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(20);"><input type="hidden" id="20" name="20" value="0">운영체제</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(20);"><input type="hidden" id="20" name="sub20" value="0">운영체제</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(21);"><input type="hidden" id="21" name="21" value="0">객체지향 설계</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(21);"><input type="hidden" id="21" name="sub21" value="0">객체지향 설계</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(22);"><input type="hidden" id="22" name="22" value="0">웹기반소프트웨어 개발</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(22);"><input type="hidden" id="22" name="sub22" value="0">웹기반소프트웨어 개발</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(23);"><input type="hidden" id="23" name="23" value="0">컴파일러</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(23);"><input type="hidden" id="23" name="sub23" value="0">컴파일러</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(24);"><input type="hidden" id="24" name="24" value="0">컴퓨터네트워크</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(24);"><input type="hidden" id="24" name="sub24" value="0">컴퓨터네트워크</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(25);"><input type="hidden" id="25" name="25" value="0">미래설계구현1</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(25);"><input type="hidden" id="25" name="sub25" value="0">미래설계구현1</th>
             <th class="credit"    style="text-align:center">1</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(26);"><input type="hidden" id="26" name="26" value="0">전문프로젝트 <span class="badge badge-danger">강추!</span></th>
+            <th class="subject" style="text-align:center" onclick="select_subject(26);"><input type="hidden" id="26" name="sub26" value="0">전문프로젝트 <span class="badge badge-danger">강추!</span></th>
             <th class="credit"    style="text-align:center">2</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(27);"><input type="hidden" id="27" name="27" value="0">소프트웨어공학</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(27);"><input type="hidden" id="27" name="sub27" value="0">소프트웨어공학</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(28);"><input type="hidden" id="28" name="28" value="0">산학프로젝트</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(28);"><input type="hidden" id="28" name="sub28" value="0">산학프로젝트</th>
             <th class="credit"    style="text-align:center">2</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(29);"><input type="hidden" id="29" name="29" value="0">확률및 통계</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(29);"><input type="hidden" id="29" name="sub29" value="0">확률및 통계</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(30);"><input type="hidden" id="30" name="30" value="0">펌웨어프로그래밍</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(30);"><input type="hidden" id="30" name="sub30" value="0">펌웨어프로그래밍</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(31);"><input type="hidden" id="31" name="31" value="0">데이터통신</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(31);"><input type="hidden" id="31" name="sub31" value="0">데이터통신</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(32);"><input type="hidden" id="32" name="32" value="0">데이터베이스시스템</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(32);"><input type="hidden" id="32" name="sub32" value="0">데이터베이스시스템</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(33);"><input type="hidden" id="33" name="33" value="0">컴퓨터그래픽스</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(33);"><input type="hidden" id="33" name="sub33" value="0">컴퓨터그래픽스</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">3학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(34);"><input type="hidden" id="34" name="34" value="0">미래설계구현2</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(34);"><input type="hidden" id="34" name="sub34" value="0">미래설계구현2</th>
             <th class="credit"    style="text-align:center">1</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(35);"><input type="hidden" id="35" name="35" value="0">캡스톤디자인1</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(35);"><input type="hidden" id="35" name="sub35" value="0">캡스톤디자인1</th>
             <th class="credit"    style="text-align:center">2</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(36);"><input type="hidden" id="36" name="36" value="0">임베디드시스템</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(36);"><input type="hidden" id="36" name="sub36" value="0">임베디드시스템</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(37);"><input type="hidden" id="37" name="37" value="0" >영상처리</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(37);"><input type="hidden" id="37" name="sub37" value="0" >영상처리</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(38);"><input type="hidden" id="38" name="38" value="0" >인공지능</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(38);"><input type="hidden" id="38" name="sub38" value="0" >인공지능</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(39);"><input type="hidden" id="39" name="39" value="0" >산학초청세미나1</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(39);"><input type="hidden" id="39" name="sub39" value="0" >산학초청세미나1</th>
             <th class="credit"    style="text-align:center">1</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(40);"><input type="hidden" id="40" name="40" value="0" >컴퓨터교재연구 및 지도법</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(40);"><input type="hidden" id="40" name="sub40" value="0" >컴퓨터교재연구 및 지도법</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(41);"><input type="hidden" id="41" name="41" value="0" >데이터베이스설계</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(41);"><input type="hidden" id="41" name="sub41" value="0" >데이터베이스설계</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(42);"><input type="hidden" id="42" name="42" value="0" >캡스톤디자인2</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(42);"><input type="hidden" id="42" name="sub42" value="0" >캡스톤디자인2</th>
             <th class="credit"    style="text-align:center">2</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(43);"><input type="hidden" id="43" name="43" value="0" >그래프이론</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(43);"><input type="hidden" id="43" name="sub43" value="0" >그래프이론</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(44);"><input type="hidden" id="44" name="44" value="0" >정보보호</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(44);"><input type="hidden" id="44" name="sub44" value="0" >정보보호</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(45);"><input type="hidden" id="45" name="45" value="0" >정보검색</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(45);"><input type="hidden" id="45" name="sub45" value="0" >정보검색</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(46);"><input type="hidden" id="46" name="46" value="0" >산학초청세미나2</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(46);"><input type="hidden" id="46" name="sub46" value="0" >산학초청세미나2</th>
             <th class="credit"    style="text-align:center">1</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(47);"><input type="hidden" id="47" name="47" value="0" >컴퓨터논리 및 논술</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(47);"><input type="hidden" id="47" name="sub47" value="0" >컴퓨터논리 및 논술</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(48);"><input type="hidden" id="48" name="48" value="0" >컴퓨터교육론</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(48);"><input type="hidden" id="48" name="sub48" value="0" >컴퓨터교육론</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(49);"><input type="hidden" id="49" name="49" value="0" >빅데이터처리</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(49);"><input type="hidden" id="49" name="sub49" value="0" >빅데이터처리</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(50);"><input type="hidden" id="50" name="50" value="0" >실험실 프로젝트</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(50);"><input type="hidden" id="50" name="sub50" value="0" >실험실 프로젝트</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">4학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">전선</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(51);"><input type="hidden" id="51" name="51" value="0" >정보콘텐츠 SW 프로젝트</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(51);"><input type="hidden" id="51" name="sub51" value="0" >정보콘텐츠 SW 프로젝트</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
@@ -534,106 +552,107 @@ $(document).ready(function(){
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(52);"><input type="hidden" id="52" name="52" value="0" >Action English</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(52);"><input type="hidden" id="52" name="sub52" value="0" >Action English</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(53);"><input type="hidden" id="53" name="53" value="0" >발표와 토론의 실제</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(53);"><input type="hidden" id="53" name="sub53" value="0" >발표와 토론의 실제</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(54);"><input type="hidden" id="54" name="54" value="0" >수학1</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(54);"><input type="hidden" id="54" name="sub54" value="0" >수학1</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(55);"><input type="hidden" id="55" name="55" value="0" >수학2</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(55);"><input type="hidden" id="55" name="sub55" value="0" >수학2</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(56);"><input type="hidden" id="56" name="56" value="0" >기초컴퓨터프로그래밍</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(56);"><input type="hidden" id="56" name="sub56" value="0" >기초컴퓨터프로그래밍</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(57);"><input type="hidden" id="57" name="57" value="0" >응용컴퓨터프로그래밍</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(57);"><input type="hidden" id="57" name="sub57" value="0" >응용컴퓨터프로그래밍</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(58);"><input type="hidden" id="58" name="58" value="0" >기초통계학및실습</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(58);"><input type="hidden" id="58" name="sub58" value="0" >기초통계학및실습</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(59);"><input type="hidden" id="59" name="59" value="0" >맛보기물리학및실험</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(59);"><input type="hidden" id="59" name="sub59" value="0" >맛보기물리학및실험</th>
             <th class="credit"    style="text-align:center">4</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(60);"><input type="hidden" id="60" name="60" value="0" >영어읽기와 토론</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(60);"><input type="hidden" id="60" name="sub60" value="0" >영어읽기와 토론</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(61);"><input type="hidden" id="61" name="61" value="0" >공업경영과 경제</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(61);"><input type="hidden" id="61" name="sub61" value="0" >공업경영과 경제</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">2학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(62);"><input type="hidden" id="62" name="62" value="0" >공학윤리와 역사</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(62);"><input type="hidden" id="62" name="sub62" value="0" >공학윤리와 역사</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(63);"><input type="hidden" id="63" name="63" value="0" >언어로의 초대</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(63);"><input type="hidden" id="63" name="sub63" value="0" >언어로의 초대</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(64);"><input type="hidden" id="64" name="64" value="0" >동양문학사</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(64);"><input type="hidden" id="64" name="sub64" value="0" >동양문학사</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
          <tr>
             <th style="text-align:center">전학년</th>
             <th style="text-align:center">1학기</th>
             <th style="text-align:center">교필</th>
-            <th class="subject" style="text-align:center" onclick="select_subject(65);"><input type="hidden" id="65" name="65" value="0" >지역사회문화 영역에서 택1</th>
+            <th class="subject" style="text-align:center" onclick="select_subject(65);"><input type="hidden" id="65" name="sub65" value="0" >지역사회문화 영역에서 택1</th>
             <th class="credit"    style="text-align:center">3</th>
          </tr>
       </table>
    </div>
+   
       <div class="container-fluid" style="background-color: #f2f2f2;position: fixed; bottom: 0px;">
-            <div class="progress" style="margin: 30px;">
-                  <div id="t2" class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 0%"></div>
-              </div>
+<!--             <div class="progress" style="margin: 30px;"> -->
+<!--                   <div id="t2" class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 0%"></div> -->
+<!--               </div> -->
               <table class="table table-bordered table-hover">
             <tr>
                <th class="align-middle" style="background-color: #932c47; color: white;text-align:center; width: 18%">총 학점</th>
@@ -644,7 +663,7 @@ $(document).ready(function(){
                <th class="align-middle" style="background-color: white; text-align:center; width: 9%" id="BB">150</th>
                <th style="text-align:center; width: 19%">
                   <div class="btn-group">
-                     <button type="submit" class="btn btn-success btn-lg" onclick="print1()")>저장하기</button>
+                     <button type="submit" class="btn btn-success btn-lg" onclick="print1()">저장하기</button>
                      <button type="button" class="btn btn-outline-success btn-lg" onclick="act1();">다시하기</button>
                   </div>
                </th>
@@ -652,7 +671,8 @@ $(document).ready(function(){
          </table>
            </div>
            <div style="height: 150px;"></div>
-            </form>
+           </c:forEach>
+   </form>
             <script>
             var temp1 = document.getElementsByClassName("subject");
             var temp2 = new Array();

@@ -2,6 +2,7 @@ package com.subject.beans;
 
 public class Subject {
 	private String id;
+	private String sub0;
     private String sub1;
     private String sub2;
     private String sub3;
@@ -72,6 +73,12 @@ public class Subject {
     public String getId() {
     	return id;
     }
+    public String getSub0() {
+        return sub0;
+}
+public void setSub0(String sub0) {
+        this.sub0 = sub0;
+}
     public String getSub1() {
             return sub1;
     }
