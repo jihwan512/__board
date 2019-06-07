@@ -10,7 +10,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta name="description" content="">
         <meta name="author" content="">
-
+		<title>학점 페이지</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/simple-sidebar.css" rel="stylesheet">
    </head>
@@ -19,7 +19,7 @@
 	var semester = ["1학기","1학기","1학기","2학기","2학기","2학기","1학기","1학기","1학기","1학기","1학기","1학기","1학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기","1학기","1학기","1학기","1학기","1학기","1학기","1학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기","1학기","1학기","1학기","1학기","1학기","1학기","1학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기","2학기"];
 	var type = ["전필","전선","전선","전필","전선","전선","전필","전필","전선","전선","전선","전선","전선","전필","전필","전필","전선","전선","전선","전선","전필","전필","전선","전선","전선","전선","전선","전필","전필","전선","전선","전선","전선","전선","전선","전필","전선","전선","전선","전선","전선","전선","전필","전선","전선","전선","전선","전선","전선","전선","전선","전선"];
 	var subj = ["이산수학","창의공학설계","미래설계탐색1","컴퓨터시스템개론","소프트웨어도구 실험","미래설계탐색2","논리회로 및 실험","자료구조","객체지향 프로그래밍","선형대수학","오토마타","미래설계준비1","기초프로젝트","컴퓨터구조","프로그래밍언어론","알고리즘","시스템프로그래밍","인간컴퓨터상호작용 프로그래밍","미래설계준비2","개발프로젝트","운영체제","객체지향 설계","웹기반소프트웨어 개발","컴파일러","컴퓨터네트워크","미래설계구현1","전문프로젝트 강추!","소프트웨어공학","산학프로젝트","확률및 통계","펌웨어프로그래밍","데이터통신","데이터통신","컴퓨터그래픽스","미래설계구현2","캡스톤디자인1","임베디드시스템","영상처리","인공지능","산학초청세미나1","컴퓨터교재연구 및 지도법","데이터베이스설계","캡스톤디자인2","그래프이론","정보보호","정보검색","산학초청세미나2","컴퓨터논리 및 논술","컴퓨터논리 및 논술","컴퓨터교육론","빅데이터처리","실험실 프로젝트","정보콘텐츠 SW 프로젝트"];
-	var score = [3, 2, 1, 3, 2, 1, 3, 3, 3, 3, 3, 1, 2, 3, 3, 3, 3, 3, 1, 2, 3, 3, 3, 3, 3, 1, 2, 3, 2, 3, 3, 3, 3, 3, 1, 2, 3, 3, 3, 1, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3];
+	var score = [3,2,1,3,2,1,3,3,3,3,3,1,2,3,3,3,3,3,1,2,3,3,3,3,3,1,3,2,3,3,3,3,3,1,2,3,3,3,1,3,3,2,3,3,3,1,3,3,3,3,3,3,3,3,3,3,3,3,4,3,3,3,3,3,3];
 </script>
 <body>   
 <script>
@@ -972,7 +972,7 @@ $(document).ready(function(){
               </div>
               <table class="table table-bordered table-hover">
             <tr>
-               <th class="align-middle" style="background-color: #932c47; color: white;text-align:center; width: 18%">총 학점</th>
+               <th class="align-middle" style="background-color: #932c47; color: white;text-align:center; width: 18%">졸업 학점</th>
                <th class="align-middle" style="background-color: white;text-align:center; width: 9%">150</th>
                <th class="align-middle" style="background-color: #932c47; color: white;text-align:center; width: 18%">이수 학점</th>
                <th class="align-middle" style="background-color: white;text-align:center; width: 9%" id="AA">0</th>
@@ -1001,12 +1001,24 @@ $(document).ready(function(){
             var sum2 = 150;
             var bar = document.getElementById("t2");
             
-//             for(var i=0;i<temp1.length;i++){
-//                temp2[i] = temp1[i].innerHTML;
-//             }
-//             for(var i=0;i<temp3.length;i++){
-//                temp4[i] = parseInt(temp3[i].innerHTML, 10);
-//             }
+            for(var i = 0 ; i< 66 ;i++){
+    			var temp = document.getElementById(+i).value;
+    			if(temp == 1){
+    				sum1 = sum1+score[i];
+    				}
+    		}
+            sum2= sum2-sum1;
+            bar.style.width = (sum1/150) * 100 +"%";
+            id1.innerHTML = sum1;
+            id2.innerHTML = sum2;
+            if(sum2 < 0) sum2 = 0;
+            
+            for(var i=0;i<temp1.length;i++){
+               temp2[i] = temp1[i].innerHTML;
+            }
+            for(var i=0;i<temp3.length;i++){
+               temp4[i] = parseInt(temp3[i].innerHTML, 10);
+            }
             
             function select_subject(num) {
                
@@ -1038,8 +1050,12 @@ $(document).ready(function(){
             }
             function sumation(){
             	for(var i = 0 ; i< 66 ;i++){
-            		
+            			var temp = document.getElementById(+i).value;
+            			if(temp == 1){
+            				sum1 = sum1+score[i];
+            				}
             		}
+            	alert(sum1);
             }
             function print1() {
                alert("이수학점 : "+ sum1 + '\n' +"남은학점 : " + sum2);
@@ -1047,7 +1063,6 @@ $(document).ready(function(){
             }
             function act1() {
                window.location.reload();
-               location.href='#t1';
             }
          </script>
      </div>
