@@ -1,11 +1,12 @@
 CREATE TABLE `subject` (
   `id` varchar(200) NOT NULL,
+  `sub0` varchar(45) DEFAULT '0',
   `sub1` varchar(45) DEFAULT '0',
   `sub2` varchar(45) DEFAULT '0',
   `sub3` varchar(45) DEFAULT '0',
   `sub4` varchar(45) DEFAULT '0',
   `sub5` varchar(45) DEFAULT '0',
-  `subl6` varchar(45) DEFAULT '0',
+  `sub6` varchar(45) DEFAULT '0',
   `sub7` varchar(45) DEFAULT '0',
   `sub8` varchar(45) DEFAULT '0',
   `sub9` varchar(45) DEFAULT '0',
