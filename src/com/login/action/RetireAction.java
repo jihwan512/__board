@@ -45,6 +45,8 @@ public class RetireAction implements CommandAction {
     			stmt.executeUpdate(sql);	    
     			sql = "DELETE FROM subject WHERE id='" + id+"'";	    			
     			stmt.executeUpdate(sql);
+    			sql = "DELETE FROM portfolio WHERE id='" + id+"'";	    			
+    			stmt.executeUpdate(sql);
     			
     			stmt.close();
     			conn.close();
