@@ -34,13 +34,13 @@ $(document).ready(function(){
 	<ul>
  		<li id="first"><a href="#">학점관리</a>
  		<ul>
- 			<li><a href="/board/abeek.jsp">학점관리</a></li>
+ 			<li><a href="/board/abeekform.do">학점관리</a></li>
 		</ul>
 		</li>
  	   <li id="third"><a href="#">포트폴리오</a>
 			<ul>
-     			<li><a href="/board/list2.jsp">포트폴리오 등록</a></li>
-			    <li><a href="/board/portfolio.do">내 포트폴리오</a></li>
+     			<li><a href="/board/modifyform2.do">포트폴리오 등록</a></li>
+			    <li><a href="/board/content2.do">내 포트폴리오</a></li>
 		    </ul>
 	   </li>
  	   <li id="fourth"><a href="#">자기소개서</a>
@@ -56,17 +56,6 @@ $(document).ready(function(){
 	   </li>
 	</ul>
   </div>
-  <div class="d-flex" id="wrapper">
-
-    <!-- Sidebar -->
-    <div class="bg-bugundy border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">개인 메뉴</div>
-      <div class="list-group list-group-flush">
-        <a href="/board/logout.do" class="list-group-item list-group-item-action bg-bugundy">로그아웃</a>
-        <a href="/board/infomodifyform.do" class="list-group-item list-group-item-action bg-bugundy">회원정보 수정</a>
-        <a href="/board/retireconfirm.jsp" class="list-group-item list-group-item-action bg-bugundy">회원탈퇴</a>
-      </div>
-    </div>
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->

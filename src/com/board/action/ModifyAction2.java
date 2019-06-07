@@ -25,17 +25,20 @@ public class ModifyAction2 implements CommandAction {
     	String url = "jdbc:mysql://127.0.0.1/board";
     	String dbUser = "root";
     	String dbPass = "root";
+    	Object _id=null;
+    	String id=null;
+    	
     	Connection conn = null;
     	Statement stmt = null;    	    	
     		try{
     			
     			HttpSession session = request.getSession();
-            	
+    			_id=session.getAttribute("id");
+    			id=_id.toString();
         		if(session.getAttribute("id") == null){
         			return "loginerror.jsp";
         		}
     			request.setCharacterEncoding("UTF-8");
-    			String id=request.getParameter("id");
     			String license_num = request.getParameter("license_num");
     	    	String license_grade = request.getParameter("license_grade");
     	    	String license_date = request.getParameter("license_date");
@@ -57,9 +60,14 @@ public class ModifyAction2 implements CommandAction {
     			conn = DriverManager.getConnection(url,dbUser,dbPass);    			    			    			
     			
     			stmt = conn.createStatement();
+    			System.out.println(id);
    			    			    		
     			String sql = "UPDATE portfolio SET license_num='" + license_num + "' ,license_grade='"+ license_grade +    						
-    						"',license_date='"+license_date+"',license_agency='"+license_agency+"',in_name='"+in_name+"', in_period='"+in_period+"',in_grade='"+in_grade+"',in_activity='"+in_activity+"',out_name='"+out_name+"',out_period='"+out_period+"',out_grade='"+out_grade+"',out_activity='"+out_activity+"',test_name='"+test_name+"',test_date='"+test_date+"',test_agency='"+test_agency+"',test_grade='"+test_grade+"',test_score='"+test_score+"',etc='"+etc+"',WHERE id='" + id+"'";				
+    						"',license_date='"+license_date+"',license_agency='"+license_agency+"',in_name='"+in_name+
+    						"', in_period='"+in_period+"',in_grade='"+in_grade+"',in_activity='"+in_activity+"',out_name='"+
+    						out_name+"',out_period='"+out_period+"',out_grade='"+out_grade+"',out_activity='"+out_activity+
+    						"',test_name='"+test_name+"',test_date='"+test_date+"',test_agency='"+test_agency+"',test_grade='"+
+    						test_grade+"',test_score='"+test_score+"',etc='"+etc+"' where id='" + id+"';";				
     			stmt.executeUpdate(sql);    			
 
     			stmt.close();

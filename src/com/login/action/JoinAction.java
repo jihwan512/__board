@@ -61,6 +61,8 @@ public class JoinAction implements CommandAction {
     				
     		pstmt = conn.prepareStatement("insert into subject (id) values(?)");
     	    		pstmt.setString(1, id);
+    	    pstmt = conn.prepareStatement("insert into portfolio (id) values(?)");
+    	    		pstmt.setString(1, id);
     	    				
     	    		// pstmt에 저장된 쿼리 실행
     	    		pstmt.executeUpdate();

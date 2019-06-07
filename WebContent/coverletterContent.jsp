@@ -47,7 +47,7 @@
 <body>
   <a id="logo" href="main.jsp"><img src="./img/cbnu.jpg" height="40px" width="40px"/>충북대학교 학적 게시판</a>
   <!-- main wrapper -->
-  <div class="menubar">
+<div class="menubar">
 	<ul>
  		<li id="first"><a href="#">학점관리</a>
  		<ul>
@@ -56,7 +56,7 @@
 		</li>
  	   <li id="third"><a href="#">포트폴리오</a>
 			<ul>
-     			<li><a href="/board/list2.do">포트폴리오 등록</a></li>
+     			<li><a href="/board/modifyform2.do">포트폴리오 등록</a></li>
 			    <li><a href="/board/content2.do">내 포트폴리오</a></li>
 		    </ul>
 	   </li>

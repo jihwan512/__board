@@ -34,7 +34,7 @@
 		</li>
  	   <li id="third"><a href="#">포트폴리오</a>
 			<ul>
-     			<li><a href="/board/list2.do">포트폴리오 등록</a></li>
+     			<li><a href="/board/modifyform2.do">포트폴리오 등록</a></li>
 			    <li><a href="/board/content2.do">내 포트폴리오</a></li>
 		    </ul>
 	   </li>

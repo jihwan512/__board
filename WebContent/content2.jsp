@@ -69,7 +69,7 @@
 		</li>
  	   <li id="third"><a href="#">포트폴리오</a>
 			<ul>
-     			<li><a href="/board/list2.do">포트폴리오 등록</a></li>
+     			<li><a href="/board/modifyform2.do">포트폴리오 등록</a></li>
 			    <li><a href="/board/content2.do">내 포트폴리오</a></li>
 		    </ul>
 	   </li>
@@ -236,7 +236,7 @@
 			<td style="text-align:left">${article.out_grade}</td>	
 			<td style="text-align:left" colspan="2">${article.out_activity}</td>						
 		</tr></table>
-		<li><table><td style="text-align:center; background-color:#932c47;color:white ;width:1150px">기타사항</td></table></li>
+		<li><table><td style="text-align:center; background-color:#932c47;color:white ;width:1150px;">기타사항</td></table></li>
 				
 		<li><table><td style="text-align:center">${article.etc}</td></table></li>
 			</ul>

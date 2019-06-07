@@ -41,6 +41,7 @@ public class WriteAction2 implements CommandAction {
     	String test_score=request.getParameter("test_score");
     	String etc=request.getParameter("etc");;
     	
+    	Object _id=null;
     	String id = null;
     	
     	Class.forName("com.mysql.jdbc.Driver");
@@ -51,7 +52,8 @@ public class WriteAction2 implements CommandAction {
     	try{
     		HttpSession session = request.getSession();
     		//세션을 읽어 로그인 상태가 아니면 로그인 창으로 이동
-        	id = (String) session.getAttribute("id");
+    		_id=session.getAttribute("id");
+			id=_id.toString();
     		if( id == null){
     			return "loginerror.jsp";
     		}
@@ -65,29 +67,30 @@ public class WriteAction2 implements CommandAction {
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
       		pstmt = conn.prepareStatement(      				
-    				"insert into portfolio values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-    				pstmt.setString(1, id);
-    				pstmt.setString(2, license_num);
-    				pstmt.setString(3, license_grade);
-    				pstmt.setString(4, license_date);
-    				pstmt.setString(5, license_agency);
-    				pstmt.setString(6, in_name);
-    				pstmt.setString(7, in_period);
-    				pstmt.setString(8, in_grade);
-    				pstmt.setString(9, in_activity);
-    				pstmt.setString(10, out_name);
-    				pstmt.setString(11, out_period);
-    				pstmt.setString(12, out_grade);
-    				pstmt.setString(13, out_activity);
-    				pstmt.setString(14, test_name);
-    				pstmt.setString(15, test_date);
-    				pstmt.setString(16, test_agency);
-    				pstmt.setString(17, test_grade);
-    				pstmt.setString(18, test_score);
-    				pstmt.setString(19, etc);
-    				
+    				"insert into board.portfolio (license_num,license_grade,license_date,license_agency,in_name,"
+    				+ "in_period,in_grade,in_activity,out_name,out_period,out_grade,out_activity"
+    				+ "test_name,test_date,test_agency,test_grade,test_score,etc) values(,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    				pstmt.setString(1, license_num);
+    				pstmt.setString(2, license_grade);
+    				pstmt.setString(3, license_date);
+    				pstmt.setString(4, license_agency);
+    				pstmt.setString(5, in_name);
+    				pstmt.setString(6, in_period);
+    				pstmt.setString(7, in_grade);
+    				pstmt.setString(8, in_activity);
+    				pstmt.setString(9, out_name);
+    				pstmt.setString(10, out_period);
+    				pstmt.setString(11, out_grade);
+    				pstmt.setString(12, out_activity);
+    				pstmt.setString(13, test_name);
+    				pstmt.setString(14, test_date);
+    				pstmt.setString(15, test_agency);
+    				pstmt.setString(16, test_grade);
+    				pstmt.setString(17, test_score);
+    				pstmt.setString(18, etc);
     				//쿼리 실행
     				pstmt.executeUpdate();
+    				System.out.println("out");
     				
     	} catch(SQLException ex){
 			
