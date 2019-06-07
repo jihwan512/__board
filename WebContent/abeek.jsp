@@ -57,7 +57,7 @@ $(document).ready(function(){
 	</ul>
   </div>
     <!-- /#sidebar-wrapper -->
-
+<div >
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
@@ -966,7 +966,7 @@ $(document).ready(function(){
       </table>
    </div>
    
-      <div class="container-fluid" style="background-color: #f2f2f2;position: fixed; bottom: 0px;">
+      <div class="container-fluid" style="background-color: #f2f2f2;position: fixed; bottom: 0px; z-index:10;">
             <div class="progress" style="margin: 30px;">
                   <div id="t2" class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 0%"></div>
               </div>
@@ -1071,6 +1071,24 @@ $(document).ready(function(){
         $( "#wrapper" ).toggleClass( "toggled" );
     } );
   </script>
-
+<!-- Footer -->
+	<section id="footer" style="margin-bottom: 195.200; z-index:-10;">
+		<div class="container">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p>National Transaction Corporation is a Registered MSP/ISO of Elavon, Inc. Georgia<br />
+					&copy All right Reversed.Sunlimetech</p>
+				</div>
+			</div>	
+	</section>
+	<!-- ./Footer -->
 </body>
 </html>
