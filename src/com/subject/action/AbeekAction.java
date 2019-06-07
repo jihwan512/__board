@@ -123,7 +123,7 @@ public class AbeekAction implements CommandAction {
 		}
     	
     	
-        return "main.jsp";
+        return "abeekform.do";
  
     }
  
