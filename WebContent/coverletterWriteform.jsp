@@ -21,19 +21,19 @@
 </head>
 
 <body>
-   <a id="logo" href="main.jsp"><img src="./img/cbnu.jpg" height="40px" width="40px"/>충북대학교 학적 게시판</a>
+  <a id="logo" href="main.jsp"><img src="./img/cbnu.jpg" height="40px" width="40px"/>충북대학교 학적 게시판</a>
   <!-- main wrapper -->
   <div class="menubar">
 	<ul>
  		<li id="first"><a href="#">학점관리</a>
  		<ul>
- 			<li><a href="/board/abeek.do">학점관리</a></li>
+ 			<li><a href="/board/abeekform.do">학점관리</a></li>
 		</ul>
 		</li>
  	   <li id="third"><a href="#">포트폴리오</a>
 			<ul>
-     			<li><a href="/board/list2.jsp">포트폴리오 등록</a></li>
-			    <li><a href="/board/portfolio.do">내 포트폴리오</a></li>
+     			<li><a href="/board/list2.do">포트폴리오 등록</a></li>
+			    <li><a href="/board/content2.do">내 포트폴리오</a></li>
 		    </ul>
 	   </li>
  	   <li id="fourth"><a href="#">자기소개서</a>
@@ -69,7 +69,6 @@
         <button class="btn btn-primary" id="menu-toggle" style="margin-right:10px;">Menu</button> 
              	사용자ID : ${id}
       </nav>
-             
 	<!-- 	</div> -->
       <form id="inform" action ="/board/coverletterwrite.do" method="post" onsubmit="return writeCheck();">
 		<table class="table table-striped table-bordered table-hover" style="text-align:center;">
@@ -118,7 +117,25 @@
         $( "#wrapper" ).toggleClass( "toggled" );
     } );
   </script>
-
+<!-- Footer -->
+	<section id="footer">
+		<div class="container">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p>National Transaction Corporation is a Registered MSP/ISO of Elavon, Inc. Georgia<br />
+					&copy All right Reversed.Sunlimetech</p>
+				</div>
+			</div>	
+	</section>
+	<!-- ./Footer -->
 </body>
 
 </html>
