@@ -130,7 +130,6 @@ public class ModifyformAction2 implements CommandAction {
         			articleList.add(article);
         		}
         		request.setAttribute("articleList",articleList);
-        		
     			stmt.close();
     			conn.close();
     			rs.close();
