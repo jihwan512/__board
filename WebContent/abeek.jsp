@@ -1047,7 +1047,7 @@ $(document).ready(function(){
                id2.innerHTML = sum2;
                if(sum2 < 0) sum2 = 0;
             }
-            function sumation{
+            function sumation(){
             	for(var i = 0 ; i< 66 ;i++){
             		
             		}
