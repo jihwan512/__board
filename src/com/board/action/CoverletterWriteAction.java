@@ -24,7 +24,7 @@ public class CoverletterWriteAction implements CommandAction {
     	//제목과 내용을 입력 받아 변수에 저장
     	String subject = request.getParameter("subject");
     	String content = request.getParameter("content");
-    	String email = request.getParameter("email");;
+    	String email = request.getParameter("email");
     	
     	String id = null;
     	

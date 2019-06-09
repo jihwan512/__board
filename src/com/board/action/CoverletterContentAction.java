@@ -65,7 +65,12 @@ public class CoverletterContentAction implements CommandAction {
     			article.setSubject(rs.getString("subject"));
     			
     			String temp = rs.getString("content");
-    			temp = temp.replaceAll("\r\n", "<br>");
+    			temp = temp.replace("\r\n", "<br>");
+    			
+    			temp = "<a onclick=\"clicking(this);\" class=\"content\">" + temp + "</a>";
+    			temp = temp.replace(".",".</a><a onclick=\"clicking(this);\" class=\"content\">");
+    			temp = temp.replace("<a onclick=\"clicking(this);\" class=\"content\"> <br>","<br><a onclick=\"clicking(this);\" class=\"content\">");
+    			temp = temp.replace("<a onclick=\"clicking(this);\" class=\"content\"><br>","<br><a onclick=\"clicking(this);\" class=\"content\">");
     			
     			article.setContent(temp);
     			article.setId(rs.getString("id"));

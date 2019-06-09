@@ -11,7 +11,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <meta name="description" content="">
   <meta name="author" content="">
-
   <title>list</title>
 
   <!-- Bootstrap core CSS -->
@@ -41,7 +40,22 @@
 			alert(num);
 			location.href="commentsdelete.do?comments="+encodeURI(encodeURIComponent(comment))+"&num="+num;
 		}
+		function clicking(a){
+			var text = document.getElementById("comment");
+			text.value = a.innerHTML + " -> ";
+		}
   </script>
+  <style>
+  	.content{
+  		display:inline;
+  		
+  	}
+  	.content:hover, .content:focus {
+	color:#fff;
+	border:1px solid #f40;
+	background-color:#f40;
+	}
+  </style>
 </head>
 
 <body>
@@ -161,7 +175,7 @@
 		<table class="table table-striped table-bordered table-hover" style="text-align:left; ">
 			<tr>
 				<td width="250px">${id} (${email})</td>
-				<td><input type="text" name="comment" placeholder="내용을 입력하세요" size="100"></td>
+				<td><input type="text" name="comment" id="comment" placeholder="내용을 입력하세요" size="100"></td>
 				<td><input type=submit class="btn btn-success" value="등록" Onclick="javascript:writeCheck();"></td>
 			</tr>	
 		</table>
