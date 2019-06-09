@@ -56,8 +56,19 @@ $(document).ready(function(){
 	   </li>
 	</ul>
   </div>
+    <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-bugundy border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">개인 메뉴</div>
+      <div class="list-group list-group-flush">
+        <a href="/board/logout.do" class="list-group-item list-group-item-action bg-bugundy">로그아웃</a>
+        <a href="/board/infomodifyform.do" class="list-group-item list-group-item-action bg-bugundy">회원정보 수정</a>
+        <a href="/board/retireconfirm.jsp" class="list-group-item list-group-item-action bg-bugundy">회원탈퇴</a>
+      </div>
+    </div>
     <!-- /#sidebar-wrapper -->
-<div >
+
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
@@ -65,6 +76,7 @@ $(document).ready(function(){
         <button class="btn btn-primary" id="menu-toggle" style="margin-right:10px;">Menu</button> 
              	사용자ID : ${id}
       </nav>
+	<!-- 	</div> -->
 
 
       <!-- ******************************************* authenticate.jsp의 content ******************************************* -->
