@@ -43,6 +43,7 @@
 		function clicking(a){
 			var text = document.getElementById("comment");
 			text.value = a.innerHTML + " -> ";
+			text.focus();
 		}
   </script>
   <style>
