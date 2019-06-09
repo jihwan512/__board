@@ -85,77 +85,77 @@ function writeCheck2()
 <div class="container-fluid">
 <c:forEach items="${articleList}" var="article">
 	<form id="inform" action ="/board/modify2.do" method="post" onsubmit="return writeCheck2();">
-		<table class="table table-striped table-bordered table-hover" style="text-align:center;">
-			<caption style="text-align:center; caption-side: top;">자격증 취득기록</caption>
+		<table class="table table-striped table-bordered table-hover" style="text-align:center;border-style:none;border-spacing:30px;border-collapse: separate;">
+			<caption style="text-align:center; caption-side: top;background-color:#932c47;color:white;border-radius: 20px;">자격증 취득기록</caption>
 			
 			<tr>
-				<th style="text-align:center">시험명</th>
-				<th style="text-align:center">등급</th>
-				<th style="text-align:center">취득일자</th>
-				<th style="text-align:center">인증기관</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none;">시험명</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none;">등급</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none;">취득일자</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none;">인증기관</th>
 			</tr>
 			<tr>
-				<th><textarea name="license_num" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.license_num}</textarea></th>
-				<th><textarea name="license_grade" rows="5" cols="20" placeholder="내용을 입력하세요"  form="inform">${article.license_grade}</textarea></th>
-				<th><textarea name="license_date" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.license_date}</textarea></th>
-				<th><textarea name="license_agency" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.license_agency}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="license_num" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.license_num}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="license_grade" rows="5" cols="20" placeholder="내용을 입력하세요"  form="inform">${article.license_grade}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="license_date" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.license_date}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="license_agency" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.license_agency}</textarea></th>
 			</tr>
 			
 		</table>
 		
-		<table class="table table-striped table-bordered table-hover" style="text-align:center;">
-			<caption style="text-align:center; caption-side: top;">교내/외 활동</caption>
+		<table class="table table-striped table-bordered table-hover" style="text-align:center;border-style:none;border-spacing:30px;border-collapse: separate;">
+			<caption style="text-align:center; caption-side: top;background-color:#932c47;color:white;border-radius: 20px">교내/외 활동</caption>
 			
 			<tr>
-				<th rowspan="2"><p></p><p>교</p><p>내</p><p>활</p><p>동</p></th>
-				<th style="text-align:center">단체명</th>
-				<th style="text-align:center">활동기간</th>
-				<th style="text-align:center">직위</th>
-				<th style="text-align:center">활동사항</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none" rowspan="2"><p></p><p>교</p><p>내</p><p>활</p><p>동</p></th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">단체명</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">활동기간</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">직위</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">>활동사항</th>
 			</tr>
 			<tr>
-				<th><textarea name="in_name" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.in_name}</textarea></th>
-				<th><textarea name="in_period" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.in_period}</textarea></th>
-				<th><textarea name="in_grade" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.in_grade}</textarea></th>
-				<th><textarea name="in_activity" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.in_activity}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="in_name" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.in_name}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="in_period" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.in_period}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="in_grade" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.in_grade}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="in_activity" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.in_activity}</textarea></th>
 			</tr>
 			<tr>
 				<th colspan="5"></th>
 			</tr>
 			<tr>
-				<th rowspan="2"><p></p><p>교</p><p>외</p><p>활</p><p>동</p></th>
-				<th style="text-align:center">단체명</th>
-				<th style="text-align:center">활동기간</th>
-				<th style="text-align:center">직위</th>
-				<th style="text-align:center">활동사항</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none"rowspan="2"><p></p><p>교</p><p>외</p><p>활</p><p>동</p></th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">단체명</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">활동기간</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">직위</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">활동사항</th>
 			</tr>
 			<tr>
-				<th><textarea name="out_name" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.out_name}</textarea></th>
-				<th><textarea name="out_period" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.out_period}</textarea></th>
-				<th><textarea name="out_grade" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.out_grade}</textarea></th>
-				<th><textarea name="out_activity" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.out_activity}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="out_name" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.out_name}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="out_period" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.out_period}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="out_grade" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.out_grade}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="out_activity" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.out_activity}</textarea></th>
 			</tr>
 			<tr>
-				<th style="text-align:center">기타사항</th>
-				<th colspan="4"><textarea name="etc" rows="5" cols="130" placeholder="내용을 입력하세요" form="inform"></textarea></th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">기타사항</th>
+				<th style="border-style:none"colspan="4"><textarea style="border-radius: 20px;" name="etc" rows="5" cols="130" placeholder="내용을 입력하세요" form="inform">${article.etc}</textarea></th>
 			</tr>
 		</table>
-		<table class="table table-striped table-bordered table-hover" style="text-align:center;">
-			<caption style="text-align:center; caption-side: top;">외국어 성적 기록</caption>
+		<table class="table table-striped table-bordered table-hover" style="text-align:center;border-style:none;border-spacing:30px;border-collapse: separate;">
+			<caption style="text-align:center; caption-side: top;background-color:#932c47;color:white;border-radius: 20px;border-style:none">외국어 성적 기록</caption>
 			
 			<tr>
-				<th style="text-align:center">시험명</th>
-				<th style="text-align:center">시행일</th>
-				<th style="text-align:center">시행기관</th>
-				<th style="text-align:center">해당학년</th>
-				<th style="text-align:center">성적</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">시험명</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">시행일</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">시행기관</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">해당학년</th>
+				<th style="text-align:center;background-color:#932c47;color:white;border-radius: 20px;border-style:none">성적</th>
 			</tr>
 			<tr>
-				<th><textarea name="test_name" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.test_name}</textarea></th>
-				<th><textarea name="test_date" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.test_date}</textarea></th>
-				<th><textarea name="test_agency" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.test_agency}</textarea></th>
-				<th><textarea name="test_grade" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.test_grade}</textarea></th>
-				<th><textarea name="test_score" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.test_score}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="test_name" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.test_name}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="test_date" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.test_date}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="test_agency" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.test_agency}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="test_grade" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.test_grade}</textarea></th>
+				<th style="border-radius: 20px;border-style:none"><textarea name="test_score" rows="5" cols="20" placeholder="내용을 입력하세요" form="inform">${article.test_score}</textarea></th>
 			</tr>
 <!-- 			<hr /> -->
 			<tr>
