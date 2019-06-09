@@ -72,7 +72,7 @@
 	<!-- 	</div> -->
       
       <div class="container-fluid">
-	<form id="inform" action ="/board/modify2.do" method="post" onsubmit="return writeCheck2();">
+		<form id="inform" action ="/board/modify2.do" method="post" onsubmit="return writeCheck2();">
 		<c:forEach items="${articleList}" var="article">
 			<input type="hidden" name="id" value="${article.id}">
 		<table class="table table-striped table-bordered table-hover" style="text-align:center;">
@@ -157,10 +157,10 @@
 			
 		</table>
 			</c:forEach>
-	</form>
+		</form>
 
     <!-- /#page-content-wrapper -->
-    </div>
+    	</div>
 	  </div>
 
     <!-- /#page-content-wrapper -->
