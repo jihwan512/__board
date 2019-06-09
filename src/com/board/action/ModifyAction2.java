@@ -60,7 +60,6 @@ public class ModifyAction2 implements CommandAction {
     			conn = DriverManager.getConnection(url,dbUser,dbPass);    			    			    			
     			
     			stmt = conn.createStatement();
-    			System.out.println(id);
    			    			    		
     			String sql = "UPDATE portfolio SET license_num='" + license_num + "' ,license_grade='"+ license_grade +    						
     						"',license_date='"+license_date+"',license_agency='"+license_agency+"',in_name='"+in_name+
