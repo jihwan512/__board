@@ -74,7 +74,7 @@
 	</ul>
   </div>
     <!-- /#sidebar-wrapper -->
-
+	<div>
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
@@ -160,7 +160,6 @@
 	  		</div>
 
     <!-- /#page-content-wrapper -->
-
   </div>
   <!-- /#wrapper -->
 
