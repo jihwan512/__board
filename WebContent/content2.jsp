@@ -19,6 +19,7 @@
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
+  <link href="css/portfolio.css" rel="stylesheet">
   
   <script> 
 //html dom 이 다 로딩된 후 실행된다.
@@ -43,17 +44,7 @@
 		  }
 		
   </script>
-  <style>
- 	 ul{
-  	 list-style:none;
-  	 }
-  	 li{
-  	 list-style:none;
-  	 }
-    .menu a{cursor:pointer;}
-    .menu .hide{display:none;}
-    .menu td{width:200px;}
-</style>
+
   
 </head>
 
@@ -113,7 +104,7 @@
 <%-- 	사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'" style="margin-left:100"> --%>
 <!-- 	</div> -->
 	<c:forEach items="${articleList}" var="article">
-	<div>
+	<div id="box">
 	<ul>
 		<li class="menu">
 			<a style="text-align:center;color:white"><h2 style="background-color:#932c47;border-radius: 20px">${article.id}의 자격증 취득기록</h2></a>
@@ -199,6 +190,7 @@
 			<input type=button class="btn btn-warning" value="수정하기" OnClick="window.location='modifyform2.do?id=${article.id}'">	
 		</c:if>		
 		<input type=button class="btn btn-secondary" value="돌아가기" OnClick="window.location='list.do'">
+		<input type=button class="btn btn-primary" value="출력하기" OnClick="printArea()">
 	</div>
 	</c:forEach>		
 	<br><br>
@@ -243,6 +235,30 @@
 			</div>	
 	</section>
 	<!-- ./Footer -->
+	  </script>
+	<script type="text/javascript">
+	function printArea(){
+	     var sw=screen.width;
+	     var sh=screen.height;
+	     var w=720;//팝업창 가로길이
+	     var h=480;//세로길이
+	     var xpos=(sw-w)/2; //화면에 띄울위치.
+	     var ypos=(sh-h)/2; //중앙에 띄웁니다.
+	 
+	     var pHeader="<html><head><link rel='stylesheet' href='css/bootstrap.min.css'><link rel='stylesheet' href='css/simple-sidebar.css'><link rel='stylesheet' href='css/portfolio.css'><title>인쇄하기</title></head><body>";
+	     var pgetContent=document.getElementById("box").innerHTML + "<br>";
+	     //innerHTML을 이용하여 Div로 묶어준 부분을 가져옵니다.
+	     var pFooter="</body></html>";
+	     pContent=pHeader + pgetContent + pFooter; 
+	      
+	     pWin=window.open("","print","width=" + w +"',height="+ h +",top=" + ypos + ",left="+ xpos +",status=1,scrollbars=1"); //동적인 새창을 띄웁니다.
+	     pWin.document.open(); //팝업창 오픈
+	     pWin.document.write(pContent); //새롭게 만든 html소스를 씁니다.
+	     pWin.document.close(); //클로즈
+	     pWin.print(); //윈도우 인쇄 창 띄우고
+	     pWin.close(); //인쇄가 되던가 취소가 되면 팝업창을 닫습니다.
+	    }
+</script>
 </body>
 
 </html>
