@@ -151,7 +151,7 @@
 	
 				<th style="text-align:center" colspan="5">		
 					<input type=submit class="btn btn-success" value="등록" Onclick="javascript:writeCheck2();">
-					<input type=button class="btn btn-secondary" value="취소" OnClick="window.location='content2.do?id=${article.id}'">
+					<input type=button class="btn btn-secondary" value="취 소" OnClick="history.back();">
 				</th>
 			</tr>
 			

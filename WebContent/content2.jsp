@@ -42,10 +42,7 @@
 		   var form = document.getElementById("inform");
 		  		return true;
 		  }
-		
-  </script>
-
-  
+		</script>
 </head>
 
 <body>
@@ -109,7 +106,7 @@
 		<li class="menu">
 			<a style="text-align:center;color:white"><h2 style="background-color:#932c47;border-radius: 20px">${article.id}의 자격증 취득기록</h2></a>
 			<ul class="hide">
-				<li><table style=";border-spacing:10px;border-collapse: separate"><tr>
+				<li><table align="center" style=";border-spacing:10px;border-collapse: separate"><tr>
 			<td style="background-color:#932c47;color:white;text-align:center;width:288px;height:50px;border-radius: 20px">시험명</td>
 			<td style="background-color:#932c47;color:white;text-align:center;width:287px;height:50px;border-radius: 20px">등급</td>
 			<td style="background-color:#932c47;color:white;text-align:center;width:287px;height:50px;border-radius: 20px">취득일자</td>
@@ -127,8 +124,14 @@
 		<li class="menu">
 			<a style="text-align:center;color:white;border-radius: 20px"><h2 style="background-color:#932c47;border-radius: 20px">${article.id}의 교내/외 활동</h2></a>
 			<ul class="hide">
-				<li><table style=";border-spacing:10px;border-collapse: separate"><td style="text-align:center; background-color:#932c47;color:white;width:1180px;height:50px;border-radius: 20px">교내활동</td></table></li>
-				<li><table style=";border-spacing:10px;border-collapse: separate"><tr>
+				<li>
+				<table align="center" style=";border-spacing:10px;border-collapse: separate;">
+				<tr>
+				<td style="text-align:center; background-color:#932c47;color:white;width:1180px;height:50px;border-radius: 20px">교내활동</td>
+				</tr>
+				</table>
+				</li>
+				<li><table align="center" style=";border-spacing:10px;border-collapse: separate;"><tr>
 			<td style="background-color:#932c47;color:white;text-align:center;width:288px;height:50px;border-radius: 20px">단체명</td>
 			<td style="background-color:#932c47;color:white;text-align:center;width:287px;height:50px;border-radius: 20px">활동기간</td>
 			<td style="background-color:#932c47;color:white;text-align:center;width:287px;height:50px;border-radius: 20px">직위</td>
@@ -140,9 +143,15 @@
 			<td style="text-align:left;border-radius: 20px">${article.in_grade}</td>	
 			<td style="text-align:left;border-radius: 20px" colspan="2">${article.in_activity}</td>						
 		</tr></table></li>
-		<li><table style=";border-spacing:10px;border-collapse: separate"><td style="text-align:center; background-color:#932c47;color:white ;width:1180px;height:50px;border-radius: 20px">교외활동</td></table></li>
+		<li>
+		<table align="center" style=";border-spacing:10px;border-collapse: separate">
+		<tr>
+		<td style="text-align:center; background-color:#932c47;color:white ;width:1180px;height:50px;border-radius: 20px">교외활동</td>
+		</tr>
+		</table>
+		</li>
 		
-		<li><table style=";border-spacing:10px;border-collapse: separate"><tr>
+		<li><table align="center" style=";border-spacing:10px;border-collapse: separate"><tr>
 			<td style="background-color:#932c47;color:white;text-align:center;width:288px;height:50px;border-radius: 20px">단체명</td>
 			<td style="background-color:#932c47;color:white;text-align:center;width:287px;height:50px;border-radius: 20px">활동기간</td>
 			<td style="background-color:#932c47;color:white;text-align:center;width:287px;height:50px;border-radius: 20px">직위</td>
@@ -150,23 +159,34 @@
 		</tr></table>
 		</li>
 		<li>
-		<table style=";border-spacing:10px;border-collapse: separate"><tr>
+		<table align="center" style=";border-spacing:10px;border-collapse: separate"><tr>
 			<td style="text-align:left;border-radius: 20px">${article.out_name}</td>
 			<td style="text-align:left;border-radius: 20px">${article.out_period}</td>	
 			<td style="text-align:left;border-radius: 20px">${article.out_grade}</td>	
 			<td style="text-align:left;border-radius: 20px" colspan="2">${article.out_activity}</td>						
 		</tr></table>
 		</li>
-		<li><table style=";border-spacing:10px;border-collapse: separate"><td style="text-align:center; background-color:#932c47;color:white ;width:1180px;border-radius: 20px">기타사항</td></table></li>
+		<li>
+			<table align="center" style=";border-spacing:10px;border-collapse: separate">
+				<tr>
+					<td style="text-align:center; background-color:#932c47;color:white ;width:1180px;border-radius: 20px">기타사항</td>
+				<tr>
+			</table>
+		</li>
 				
-		<li><table style=";border-spacing:10px;border-collapse: separate"><td style="text-align:center;border-radius: 20px">${article.etc}</td></table></li>
+		<li>
+		<table align="center" style=";border-spacing:10px;border-collapse: separate">
+		<tr>
+		<td style="text-align:center;border-radius: 20px">${article.etc}</td>
+		</tr>
+		</table></li>
 			</ul>
 	</ul>
 	<ul>
 		<li class="menu">
 			<a style="text-align:center;color:white"><h2 style="background-color:#932c47;border-radius: 20px">${article.id}의 외국어 성적기록</h2></a>
 			<ul class="hide">
-				<li><table style=";border-spacing:10px;border-collapse: separate"><tr>
+				<li><table align="center" style=";border-spacing:10px;border-collapse: separate"><tr>
 			<td style="background-color:#932c47;color:white;text-align:center;width:237px;height:50px;border-radius: 20px">시험명</td>
 			<td style="background-color:#932c47;color:white;text-align:center;width:237px;height:50px;border-radius: 20px">시행일</td>
 			<td style="background-color:#932c47;color:white;text-align:center;width:237px;height:50px;border-radius: 20px">시행기관</td>
@@ -189,7 +209,7 @@
 			<!--  <input type=button class="btn btn-danger" value="삭제하기" OnClick="window.location='delete.do?num=${article.num}'">-->
 			<input type=button class="btn btn-warning" value="수정하기" OnClick="window.location='modifyform2.do?id=${article.id}'">	
 		</c:if>		
-		<input type=button class="btn btn-secondary" value="돌아가기" OnClick="window.location='list.do'">
+		<input type=button class="btn btn-secondary" value="돌아가기" OnClick="history.back();">
 		<input type=button class="btn btn-primary" value="출력하기" OnClick="printArea()">
 	</div>
 	</c:forEach>		

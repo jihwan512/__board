@@ -162,7 +162,7 @@ function writeCheck2()
 	
 				<th style="text-align:center" colspan="5">		
 					<input type=submit class="btn btn-success" value="등록" Onclick="javascript:writeCheck2();">
-					<input type=button class="btn btn-secondary" value="취소" OnClick="window.location='list2.do'">
+					<input type=button class="btn btn-secondary" value="취소" OnClick="history.back();">
 				</th>
 			</tr>
 			
