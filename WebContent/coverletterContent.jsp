@@ -141,10 +141,12 @@
 	</table>
 	<div style="text-align:right">
 		<c:if test="${article.id eq id}">
-			<input type=button class="btn btn-danger" value="삭제하기" OnClick="window.location='coverletterdelete.do?num=${article.num}'">
-			<input type=button class="btn btn-warning" value="수정하기" OnClick="window.location='coverlettermodifyform.do?num=${article.num}'">	
+			<input type=button class="btn btn-danger" value="삭제하기" OnClick="window.location='coverletterdelete.do?num=${article.num}'"/>
+			<input type=button class="btn btn-warning" value="수정하기" OnClick="window.location='coverlettermodifyform.do?num=${article.num}'"/>	
 		</c:if>		
-		<input type=button class="btn btn-secondary" value="돌아가기" OnClick="window.location='coverletterlist.do'">
+		
+		<input type=button class="btn btn-primary" value="출력하기" OnClick="printArea()"/>
+		<input type=button class="btn btn-secondary" value="돌아가기" OnClick="window.location='coverletterlist.do'"/>
 	</div>
 	</c:forEach>		
 	<br><br>
@@ -223,6 +225,49 @@
 			</div>	
 	</section>
 	<!-- ./Footer -->
+	
+	
+<!-- print Zone -->
+
+<div  id="box" style="display:none">
+	<div class="container" > 
+                    <c:forEach items="${articleList}" var="article">
+                    	<h2>${article.subject}</h2>
+                    	<h3>작성자: ${article.id}</h3>
+                    	<div id="content">
+	                            ${article.content}
+                        </div>
+                    </c:forEach>
+	</div>
+</div>
+<!-- print Zone -->
+
+	<script type="text/javascript">
+	function printArea(){
+	     var sw=screen.width;
+	     var sh=screen.height;
+	     var w=720;//팝업창 가로길이
+	     var h=480;//세로길이
+	     var xpos=(sw-w)/2; //화면에 띄울위치.
+	     var ypos=(sh-h)/2; //중앙에 띄웁니다.
+	 	 var mycss = "<link rel='stylesheet' href='css/coverletter.css'>"
+// 	 	 +"<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css'>"+"<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css'>"
+	 	 
+	     
+	     var pHeader="<html><head>"+ mycss +"<title>인쇄하기</title></head><body>";
+	     var pgetContent=document.getElementById("box").innerHTML + "<br>";
+	     //innerHTML을 이용하여 Div로 묶어준 부분을 가져옵니다.
+	     var pFooter="</body></html>";
+	     pContent=pHeader + pgetContent + pFooter; 
+	      
+	     pWin=window.open("","print","width=" + w +"',height="+ h +",top=" + ypos + ",left="+ xpos +",status=1,scrollbars=1"); //동적인 새창을 띄웁니다.
+	     pWin.document.open(); //팝업창 오픈
+	     pWin.document.write(pContent); //새롭게 만든 html소스를 씁니다.
+	     pWin.document.close(); //클로즈
+	     pWin.print(); //윈도우 인쇄 창 띄우고
+	     pWin.close(); //인쇄가 되던가 취소가 되면 팝업창을 닫습니다.
+	    }
+</script>
 </body>
 
 </html>
