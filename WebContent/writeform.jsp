@@ -74,7 +74,7 @@ else {
 	</ul>
   </div>
     <!-- /#sidebar-wrapper -->
-
+<div>
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
@@ -87,9 +87,9 @@ else {
 <!--         		<div style="text-align:right"> -->
 <%-- 	사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'" style="margin-left:100"> --%>
 <!-- 	</div> -->
-
-	<form id="inform" action ="/board/write.do" method="post" onsubmit="return writeCheck();">
-		<table class="table table-striped table-bordered table-hover" style="text-align:center;">
+	<div >
+	<form id="inform" action ="/board/write.do" method="post" onsubmit="return writeCheck();" style="left:50%; "> 
+		<table class="table table-striped table-bordered table-hover" align="center" style="left:50%; width:300px; align:center;">
 			<caption style="text-align:center; caption-side: top;">게시글 작성</caption>
 			<tr >
 				<th>제목</th>
@@ -103,7 +103,7 @@ else {
 			</tr>
 			<tr>	
 				<th>내용</th>
-				<th style="text-align:left" colspan="3"><textarea name="content" rows="10" cols="130" placeholder="내용을 입력하세요" form="inform"></textarea></th>
+				<th style="text-align:left" colspan="3"><textarea name="content" rows="10" cols="160" placeholder="내용을 입력하세요" form="inform"></textarea></th>
 			</tr>	
 			<tr>
 	
@@ -114,6 +114,7 @@ else {
 			</tr>
 		</table>
 	</form>
+	</div>
 
     <!-- /#page-content-wrapper -->
     </div>
