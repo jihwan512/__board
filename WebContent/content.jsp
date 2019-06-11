@@ -162,7 +162,7 @@
 		<table class="table table-striped table-bordered table-hover" style="text-align:left; ">
 			<tr>
 				<td width="250px">${id} (${email})</td>
-				<td><input type="text" name="comment" placeholder="내용을 입력하세요" size="100"></td>
+				<td><input type="text" name="comment" placeholder="내용을 입력하세요" size="210"></td>
 				<td><input type=submit class="btn btn-success" value="등록" Onclick="javascript:writeCheck();"></td>
 			</tr>	
 		</table>
