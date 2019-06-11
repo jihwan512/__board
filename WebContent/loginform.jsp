@@ -141,7 +141,7 @@ height:42px;
 margin-top:25px;
 padding:0 15px;
 background:#2d2d2d;
-background:rgba(45,45,45,.15);
+background:rgba(246,246,255,.8);
 -moz-border-radius: 6px;
 -webkit-border-radius:6px;
 text-align:center;
@@ -152,8 +152,8 @@ border:1px solid rgba(255,255,255,.15);
 -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
 box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
 font-family: 'PT Sans', Helvetica, Arial, sans-serif;
-font-size:16px;
-color:#fff;
+font-size:30px;
+color:#000;
 text-shadow:0 1px 2px rgba(0,0,0,.1);
 -o-transition: all .2s;
 -moz-transition: all .2s;
@@ -269,14 +269,14 @@ button:active {
 <source src="./img/back.mp4" type="video/mp4"> 
 </video>
 
-<div id="fashion">
-  <form action="/board/join.do" method="POST">
+<div id="fashion" style="color:#932c47">
+  <form action="/board/join.do" method="POST" >
 
-				<h1>Sign Up</h1>
-                <input type="text" name="id" class="Name" placeholder="ID">
-                <input type="text" name="password" class="Tele" placeholder="PASSWORD">
-				<input type="text" name="email" class="Email" placeholder="EMAIL">
-				<input type="text" name="name" class="Address" placeholder="NAME">
+				<h1 style="font-size:60px">Sign Up</h1>
+                <input type="text" name="id" class="Name" placeholder="ID" >
+                <input type="text" name="password" class="Tele" placeholder="PASSWORD" >
+				<input type="text" name="email" class="Email" placeholder="EMAIL" >
+				<input type="text" name="name" class="Address" placeholder="NAME" >
                 <button type="submit" value="Add" name="submit">Submit</button>
             </form>
 </div>
