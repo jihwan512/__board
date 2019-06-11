@@ -71,7 +71,7 @@
       </nav>
 	<!-- 	</div> -->
       <form id="inform" action ="/board/coverletterwrite.do" method="post" onsubmit="return writeCheck();">
-		<table class="table table-striped table-bordered table-hover" style="text-align:center;">
+		<table class="table table-striped table-bordered table-hover" align="center" style="left:50%; width:300px; align:center;">
 			<caption style="text-align:center; caption-side: top;">자기소개서 작성</caption>
 			<tr >
 				<th>제목</th>
@@ -85,7 +85,7 @@
 			</tr>
 			<tr>	
 				<th>내용</th>
-				<th style="text-align:left" colspan="3"><textarea name="content" rows="10" cols="130" placeholder="내용을 입력하세요" form="inform"></textarea></th>
+				<th style="text-align:left" colspan="3"><textarea name="content" rows="10" cols="160" placeholder="내용을 입력하세요" form="inform"></textarea></th>
 			</tr>	
 			<tr>
 	
