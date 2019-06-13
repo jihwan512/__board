@@ -142,10 +142,9 @@
 	<div style="text-align:right">
 		<c:if test="${article.id eq id}">
 			<input type=button class="btn btn-danger" value="삭제하기" OnClick="window.location='coverletterdelete.do?num=${article.num}'"/>
-			<input type=button class="btn btn-warning" value="수정하기" OnClick="window.location='coverlettermodifyform.do?num=${article.num}'"/>	
+			<input type=button class="btn btn-warning" value="수정하기" OnClick="window.location='coverlettermodifyform.do?num=${article.num}'"/>
+			<input type=button class="btn btn-primary" value="출력하기" OnClick="printArea()"/>	
 		</c:if>		
-		
-		<input type=button class="btn btn-primary" value="출력하기" OnClick="printArea()"/>
 		<input type=button class="btn btn-secondary" value="돌아가기" OnClick="window.location='coverletterlist.do'"/>
 	</div>
 	</c:forEach>		
