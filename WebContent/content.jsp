@@ -140,19 +140,24 @@
 		<tr>
 			<td width="250px">아이디 (이메일)</td>
 			<td width="120px">작성일자</td>
-			<td>댓글 내용</td>
+			<td colspan="2">댓글 내용</td>
 		</tr>
 		<c:forEach items="${commentsList}" var="comments">
 		
 		<tr>
 			<td>${comments.id} (${comments.email})</td>
 			<td>${comments.date}</td>
-			<td style="text-align-last:justify;">${comments.comment}
+			<td style="text-align:left">${comments.comment}</td>
+			
 			<c:if test="${comments.id eq id}">
+			<td width="90px" >
 				<%int num=Integer.parseInt(request.getParameter("num")); %>
 				<input type=button class="btn btn-danger" value="삭제하기" OnClick="window.location='commentsdelete.do?num=${comments.num}&boardnum=<%=num%>'" >
-			</c:if>
 			</td>
+			</c:if>
+			<c:if test="${comments.id ne id}">
+				<td width="90px" style="display:hidden"></td>
+			</c:if>
 		</tr>
 		</c:forEach>
 	</table>
