@@ -13,6 +13,17 @@
 		<title>학점 페이지</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/simple-sidebar.css" rel="stylesheet">
+        <!-- cycle -->
+	<script type="text/javascript" src="http://malsup.github.com/jquery.cycle.all.js"></script>
+	<script>
+		$(document).ready(function(){
+		$('.cycle').cycle({ 
+		    fx:     'scrollLeft', 
+		    timeout: 5000
+		 });
+		});
+	</script>
+<!-- cycle -->
    </head>
 <script>
 	var grade = ["1학년","1학년","1학년","1학년","1학년","1학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","2학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","3학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년","4학년"];
@@ -1098,6 +1109,15 @@ $(document).ready(function(){
         $( "#wrapper" ).toggleClass( "toggled" );
     } );
   </script>
+        <!-- cycle -->
+     <div class="cycleborder">
+	<div class="cycle" style="text-align:center">
+		<div class="cyclediv" style="background:black;"><a href="https://cbnu.blackboard.com/" target="_blank"><img class="topimg" src="img/ecampus.png"/></a></div>
+		<div class="cyclediv"><a href="https://eis.cbnu.ac.kr/" target="_blank"><img class="topimg" src="img/gaesin.png"/></a></div>
+		<div class="cyclediv"><a href="https://software.cbnu.ac.kr/" target="_blank"><img class="topimg" src="img/software.png"/></a></div>
+	</div>
+	</div>
+	<!-- cycle -->
 <!-- Footer -->
 	<section id="footer" style="margin-bottom: 195.200; z-index:-10;">
 		<div class="container">

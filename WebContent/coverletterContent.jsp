@@ -18,7 +18,17 @@
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
-  
+  <!-- cycle -->
+	<script type="text/javascript" src="http://malsup.github.com/jquery.cycle.all.js"></script>
+	<script>
+		$(document).ready(function(){
+		$('.cycle').cycle({ 
+		    fx:     'scrollLeft', 
+		    timeout: 5000
+		 });
+		});
+	</script>
+<!-- cycle -->
   <script> 
 		
 		function writeCheck()
@@ -205,6 +215,15 @@
         $( "#wrapper" ).toggleClass( "toggled" );
     } );
   </script>
+        <!-- cycle -->
+     <div class="cycleborder">
+	<div class="cycle" style="text-align:center">
+		<div class="cyclediv" style="background:black;"><a href="https://cbnu.blackboard.com/" target="_blank"><img class="topimg" src="img/ecampus.png"/></a></div>
+		<div class="cyclediv"><a href="https://eis.cbnu.ac.kr/" target="_blank"><img class="topimg" src="img/gaesin.png"/></a></div>
+		<div class="cyclediv"><a href="https://software.cbnu.ac.kr/" target="_blank"><img class="topimg" src="img/software.png"/></a></div>
+	</div>
+	</div>
+	<!-- cycle -->
 <!-- Footer -->
 	<section id="footer">
 		<div class="container">

@@ -21,10 +21,28 @@
 <style>
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 </style>
+
+
+<!-- cycle -->
+	<script type="text/javascript" src="http://malsup.github.com/jquery.cycle.all.js"></script>
+	<script>
+		$(document).ready(function(){
+		$('.cycle').cycle({ 
+		    fx:     'scrollLeft', 
+		    timeout: 5000
+		 });
+		});
+	</script>
+<!-- cycle -->
+
+
 </head>
 
 <body>
+
+	
     <a id="logo" href="main.jsp"><img src="./img/cbnu.jpg" height="40px" width="40px"/>충북대학교 학적 게시판</a>
+
   <!-- main wrapper -->
   <div class="menubar">
 	<ul>
@@ -52,6 +70,11 @@
 	   </li>
 	</ul>
   </div>
+  
+  
+
+	
+	
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
@@ -100,7 +123,15 @@
         $( "#wrapper" ).toggleClass( "toggled" );
     } );
   </script>
-
+      <!-- cycle -->
+     <div class="cycleborder">
+	<div class="cycle" style="text-align:center">
+		<div class="cyclediv" style="background:black;"><a href="https://cbnu.blackboard.com/" target="_blank"><img class="topimg" src="img/ecampus.png"/></a></div>
+		<div class="cyclediv"><a href="https://eis.cbnu.ac.kr/" target="_blank"><img class="topimg" src="img/gaesin.png"/></a></div>
+		<div class="cyclediv"><a href="https://software.cbnu.ac.kr/" target="_blank"><img class="topimg" src="img/software.png"/></a></div>
+	</div>
+	</div>
+	<!-- cycle -->
 <!-- Footer -->
 	<section id="footer">
 		<div class="container">
