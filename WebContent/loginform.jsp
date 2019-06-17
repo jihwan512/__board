@@ -275,7 +275,7 @@ button:active {
 				<h1 style="font-size:60px">Sign Up</h1>
                 <input type="text" name="id" class="Name" placeholder="ID" >
                 <input type="text" name="password" class="Tele" placeholder="PASSWORD" >
-				<input type="text" name="email" class="Email" placeholder="EMAIL" >
+				<input type="email" name="email" class="Email" placeholder="EMAIL" >
 				<input type="text" name="name" class="Address" placeholder="NAME" >
                 <button type="submit" value="Add" name="submit">Submit</button>
             </form>
