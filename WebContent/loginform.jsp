@@ -258,7 +258,9 @@ button:active {
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
-
+input::placeholder{
+	color:grey;
+}
 </style>
 <title>회원가입</title>
 </head>
